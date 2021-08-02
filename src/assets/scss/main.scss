@@ -4,14 +4,10 @@
 // https://sass-guidelin.es/#the-7-1-pattern
 
 // Configuration and helpers
-@import 
-  'abstracts/variables',
-  'abstracts/mixins';
+@import 'abstracts/all';
 
 // Vendors
-@import 
-  'vendors/bumla';
+@import 'vendors/all';
 
 // Base stuff
-@import 
-  'base/base';
+@import 'base/all';

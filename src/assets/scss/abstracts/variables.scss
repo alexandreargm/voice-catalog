@@ -1,0 +1,65 @@
+
+/*
+  Colors
+*/
+
+// Brand
+$brand-hue: 253;
+$brand-saturation: 83%;
+$brand-lightness: 45%;
+
+// Dark theme colors
+$brand-dark: hsl($brand-hue $brand-saturation $brand-lightness);
+$text1-dark: hsl($brand-hue 15% 85%);
+$text2-dark: hsl($brand-hue 5% 65%);
+$surface1-dark: hsl($brand-hue 10% 10%);
+$surface2-dark: hsl($brand-hue 10% 15%);
+$surface3-dark: hsl($brand-hue 5%  20%);
+$surface4-dark: hsl($brand-hue 5% 25%);
+$surface-shadow-dark: $brand-hue 50% 3%;
+$shadow-strength-dark: .8;
+
+/*
+  Tipography
+*/
+
+// Font stack
+$sans-family: (BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif);
+$monospace-family: monospace;
+
+// Font weights
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+
+/*
+  Responsive
+*/
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in rem
+$breakpoints: (
+  'mobile': 23.4375rem, // 375px
+  'mobile2': 30rem, // 480px
+  'tablet': 48rem, // 768px
+  'tablet2': 64rem, // 1024px
+  'laptop': 75rem, // 1200px
+  'laptop2': 90rem, // 1440px
+);
+
+/// Breakpoints in px map (KEEP UPDATED!)
+/// Used for some calculations (Bulma scss variables)
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in px
+$breakpoints-px: (
+  'mobile': 375px, // 375px
+  'mobile2': 480px, // 480px
+  'tablet': 768px, // 768px
+  'tablet2': 768px, // 768px
+  'laptop': 1200px, // 1200px
+  'laptop2': 1440px, // 1440px
+);
