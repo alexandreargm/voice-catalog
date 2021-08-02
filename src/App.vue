@@ -11,6 +11,7 @@
           <voice-card
             id="1"
             name="Hola mundo"
+            icon="VoicesVoiceIcon01.png"
           />
         </feed>
       </main>
@@ -38,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/main.scss';
+@import '@/assets/scss/main.scss';
 .layout {
   background-color: $surface1;
 }
