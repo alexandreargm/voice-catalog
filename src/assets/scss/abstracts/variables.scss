@@ -16,9 +16,7 @@ $surface1: hsl($brand-hue 10% 10%);
 $surface2: hsl($brand-hue 10% 15%);
 $surface3: hsl($brand-hue 5%  20%);
 $surface4: hsl($brand-hue 5% 25%);
-$surface-shadow: hsl($brand-hue 50% 3%);
-$shadow-saturation: 50%;
-$shadow-strength: 3%;
+$surface-shadow: hsla($brand-hue, 50%, 3%, 0.7);
 
 /*
   Tipography
