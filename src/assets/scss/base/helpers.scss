@@ -1,6 +1,7 @@
 .shadow {
-  $border-color: math-div($shadow-saturation, 15%);
-  border: 1px solid hsl($brand-hue 10% $border-color);
+  $border-color1: math-div(#{$shadow-saturation} / 15%);
+  $border-color2: math-percentage($border-color1);
+  border: 1px solid hsl($brand-hue 10% $border-color2);
   box-shadow: 0 3px 3px $surface-shadow;
   box-shadow:
     0 2.8px 2.2px hsl($brand-hue $shadow-saturation $shadow-strength + .03),
@@ -8,6 +9,6 @@
     0 12.5px 10px hsl($brand-hue $shadow-saturation $shadow-strength + .02),
     0 22.3px 17.9px hsl($brand-hue $shadow-saturation $shadow-strength + .02),
     0 41.8px 33.4px hsl($brand-hue $shadow-saturation $shadow-strength + .03),
-    0 100px 80px hsl($brand-hue $shadow-saturation $shadow-strength)
+    0 100px 80px $surface-shadow
   ;
 }
