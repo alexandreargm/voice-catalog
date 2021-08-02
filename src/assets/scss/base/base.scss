@@ -1,11 +1,16 @@
 /*
  * Set up to use all available viewport space
  */
-html, body, #app {
+html,
+body,
+.app {
   display: flex;
   min-height: 100%;
 }
-body, #app, .layout {
+
+body,
+.app,
+.layout {
   flex-grow: 1;
 }
 

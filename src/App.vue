@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app">
     <div class="layout">
       <header class="layout__header">
 
@@ -39,7 +39,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/main.scss';
+@import '@/assets/scss/main';
+
 .layout {
   background-color: $surface1;
 }
