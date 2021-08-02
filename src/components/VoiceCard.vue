@@ -1,5 +1,5 @@
 <template>
-  <article class="voice-card">
+  <article class="voice-card shadow">
     <div class="voice-card__image-wrapper">
       <img :src="icon" alt="">
 
@@ -35,8 +35,6 @@ export default {
 
 <style lang="scss">
 .voice-card{
-  @include breakpoint("tablet") {
-    background-color: red !important;
-  }
+  //
 }
 </style>

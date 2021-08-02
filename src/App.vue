@@ -9,7 +9,6 @@
       <main class="layout__main">
         <feed>
           <voice-card
-            class="shadow"
             id="1"
             name="Hola mundo"
           />
@@ -41,8 +40,6 @@ export default {
 <style lang="scss">
 @import '~/assets/scss/main.scss';
 .layout {
-  @include breakpoint("tablet") {
-    background-color: $brand !important;
-  }
+  background-color: $surface1;
 }
 </style>
