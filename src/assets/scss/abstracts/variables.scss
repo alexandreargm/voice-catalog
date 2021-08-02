@@ -47,8 +47,8 @@ $breakpoints: (
   'mobile2': 30rem, // 480px
   'tablet': 48rem, // 768px
   'tablet2': 64rem, // 1024px
-  'laptop': 75rem, // 1200px
-  'laptop2': 90rem, // 1440px
+  'desktop': 75rem, // 1200px
+  'desktop2': 90rem, // 1440px
 );
 
 /// Breakpoints in px map (KEEP UPDATED!)
@@ -60,6 +60,6 @@ $breakpoints-px: (
   'mobile2': 480px, // 480px
   'tablet': 768px, // 768px
   'tablet2': 768px, // 768px
-  'laptop': 1200px, // 1200px
-  'laptop2': 1440px, // 1440px
+  'desktop': 1200px, // 1200px
+  'desktop2': 1440px, // 1440px
 );
