@@ -4,20 +4,21 @@
 */
 
 // Brand
-$brand-hue: 253;
-$brand-saturation: 83%;
-$brand-lightness: 45%;
+$brand-hue: 275;
+$brand-saturation: 63%;
+$brand-lightness: 56%;
 
 // Dark theme colors
-$brand-dark: hsl($brand-hue $brand-saturation $brand-lightness);
-$text1-dark: hsl($brand-hue 15% 85%);
-$text2-dark: hsl($brand-hue 5% 65%);
-$surface1-dark: hsl($brand-hue 10% 10%);
-$surface2-dark: hsl($brand-hue 10% 15%);
-$surface3-dark: hsl($brand-hue 5%  20%);
-$surface4-dark: hsl($brand-hue 5% 25%);
-$surface-shadow-dark: $brand-hue 50% 3%;
-$shadow-strength-dark: .8;
+$brand: hsl($brand-hue $brand-saturation $brand-lightness);
+$text1: hsl($brand-hue 15% 85%);
+$text2: hsl($brand-hue 5% 65%);
+$surface1: hsl($brand-hue 10% 10%);
+$surface2: hsl($brand-hue 10% 15%);
+$surface3: hsl($brand-hue 5%  20%);
+$surface4: hsl($brand-hue 5% 25%);
+$surface-shadow: hsl($brand-hue 50% 3%);
+$shadow-saturation: 50%;
+$shadow-strength: 3%;
 
 /*
   Tipography
