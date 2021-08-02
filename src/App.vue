@@ -1,27 +1,33 @@
 <template>
   <div id="app">
-    <Home />
+    <div class="layout">
+      <Header>
+
+      </Header>
+
+      <!--  -->
+      <Main>
+
+      </Main>
+
+      <Drawer>
+
+      </Drawer>
+    </div>
   </div>
 </template>
 
 <script>
-import Home from '~/components/pages/Home.vue'
+import '@/assets/scss/main.scss'
+import Main from '~/components/layout/Main.vue'
+import Header from '~/components/layout/Header.vue'
+import Drawer from '~/components/layout/Drawer.vue'
 
 export default {
-  name: 'App',
   components: {
-    Home
+    Header,
+    Main,
+    Drawer
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
