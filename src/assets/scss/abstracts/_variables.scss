@@ -1,0 +1,20 @@
+$red-color: red;
+
+
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in rem
+$breakpoints: (
+  'mobile': 23.4375rem, // 375px
+  'mobile-wide': 30rem, // 480px
+  'tablet-portrait': 48rem, // 768px
+  'tablet-landscape': 64rem, // 1024px
+  'laptop': 75rem, // 1200px
+  'laptop-big': 90rem, // 1440px
+) !default;
