@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import '~/assets/scss/main.scss'
 import Feed from './components/Feed.vue'
 import Drawer from './components/Drawer.vue'
 import VoiceCard from './components/VoiceCard.vue'
@@ -40,7 +39,10 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~/assets/scss/main.scss';
 .layout {
-  background-color: $surface1;
+  @include breakpoint("tablet") {
+    background-color: $brand !important;
+  }
 }
 </style>

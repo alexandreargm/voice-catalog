@@ -35,6 +35,8 @@ export default {
 
 <style lang="scss">
 .voice-card{
-  //
+  @include breakpoint("tablet") {
+    background-color: red !important;
+  }
 }
 </style>
