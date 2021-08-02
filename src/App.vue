@@ -1,32 +1,46 @@
 <template>
   <div id="app">
     <div class="layout">
-      <Header>
+      <header class="layout__header">
 
-      </Header>
+      </header>
 
-      <!--  -->
-      <Main>
+      <!-- All voices -->
+      <main class="layout__main">
+        <feed>
+          <voice-card
+            class="shadow"
+            id="1"
+            name="Hola mundo"
+          />
+        </feed>
+      </main>
 
-      </Main>
-
-      <Drawer>
-
-      </Drawer>
+      <!-- Favorited voices -->
+      <drawer class="layout__drawer">
+        <!-- Favorites filter -->
+      </drawer>
     </div>
   </div>
 </template>
 
 <script>
-import Main from '~/components/layout/Main.vue'
-import Header from '~/components/layout/Header.vue'
-import Drawer from '~/components/layout/Drawer.vue'
+import '~/assets/scss/main.scss'
+import Feed from './components/Feed.vue'
+import Drawer from './components/Drawer.vue'
+import VoiceCard from './components/VoiceCard.vue'
 
 export default {
   components: {
-    Header,
-    Main,
-    Drawer
+    Drawer,
+    VoiceCard,
+    Feed
   }
 }
 </script>
+
+<style lang="scss">
+.layout {
+  background-color: $surface1;
+}
+</style>
