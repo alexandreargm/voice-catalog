@@ -3,18 +3,27 @@ const state = {
 }
 
 const getters = {
-  getFavorites: state => state.ids
+  getFavorites: state => {
+    return state.ids
+  },
+  getFavoriteById: state => id => {
+    return state.ids.find(favoriteId => favoriteId === id)
+  }
 }
 
 const actions = {
-  addVoiceToFavorites ({ commit }, voice) {
+  addVoiceToFavorites ({ commit, getters }, voice) {
     const { id } = voice
-    commit('SET_FAVORITE', id)
+    const isAlreadyFavorite = getters.getFavoriteById(id)
+    if (isAlreadyFavorite) return false
+
+    commit('ADD_FAVORITE', id)
+    return true
   }
 }
 
 const mutations = {
-  SET_FAVORITE (state, voiceId) {
+  ADD_FAVORITE (state, voiceId) {
     state.ids.push(voiceId)
   }
 }
