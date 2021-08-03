@@ -7,7 +7,7 @@ module.exports = {
     // ref: https://cli.vuejs.org/guide/css.html#passing-options-to-pre-processor-loaders
     loaderOptions: {
       scss: {
-        prependData: '@import "@/assets/scss/abstracts/_all.scss";'
+        additionalData: '@import "@/assets/scss/abstracts/_all.scss";'
       }
     }
   }
