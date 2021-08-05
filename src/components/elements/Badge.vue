@@ -20,6 +20,6 @@ export default {
 }
 
 .badge.is-rounded {
-  border-radius: 9999px;
+  border-radius: $rounded-full;
 }
 </style>
