@@ -10,13 +10,13 @@ $brand-lightness: 56%;
 
 // Theme colors
 $brand: hsl($brand-hue $brand-saturation $brand-lightness);
-$text1: hsl($brand-hue 15% 85%);
-$text2: hsl($brand-hue 5% 65%);
-$text3: hsl($brand-hue 5% 45%);
-$surface1: hsl($brand-hue 10% 10%);
-$surface2: hsl($brand-hue 10% 15%);
-$surface3: hsl($brand-hue 5%  20%);
-$surface4: hsl($brand-hue 5% 25%);
+$text1: hsl($brand-hue 30% 85%);
+$text2: hsl($brand-hue 20% 65%);
+$text3: hsl($brand-hue 15% 45%);
+$surface1: hsl($brand-hue 30% 10%);
+$surface2: hsl($brand-hue 20% 15%);
+$surface3: hsl($brand-hue 15% 25%);
+$surface4: hsl($brand-hue 15% 30%);
 $surface-shadow: hsla($brand-hue, 50%, 3%, 0.7);
 
 /*
@@ -33,6 +33,7 @@ $weight-normal: 400;
 $weight-medium: 500;
 $weight-semibold: 600;
 $weight-bold: 700;
+$weight-black: 800;
 
 // Font sizes
 $font-sm: 12px;
@@ -78,18 +79,22 @@ $breakpoints-px: (
 */
 
 // Padding
+$padding-xs: 4px;
 $padding-sm: 8px;
 $padding-md: 12px;
 $padding: 16px;
-$padding-lg: 32px;
-$padding-xl: 64px;
+$padding-lg: 24px;
+$padding-xl: 32px;
+$padding-2xl: 64px;
 
 // Spacing
+$spacing-xs: 4px;
 $spacing-sm: 8px;
 $spacing-md: 12px;
 $spacing: 16px;
-$spacing-lg: 32px;
-$spacing-xl: 64px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 64px;
 
 // Roundness
 $rounded-sm: 2px;
@@ -97,4 +102,16 @@ $rounded-md: 4px;
 $rounded: 6px;
 $rounded-lg: 8px;
 $rounded-xl: 12px;
+$rounded-2xl: 24px;
 $rounded-full: 9999px;
+
+// Heights
+$height-sm: 16px;
+$height-md: 24px;
+$height: 32px;
+$height-lg: 40px;
+$height-xl: 48px;
+$height-54: 54px;
+$height-64: 64px;
+$height-72: 72px;
+$height-96: 96px;
