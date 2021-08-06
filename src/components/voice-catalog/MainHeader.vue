@@ -6,7 +6,7 @@
     <brand />
 
     <Button variant="is-secondary" class="toggle-drawer" @click="toggleFavoriteDrawer">
-      <ViewGridAddIcon size="24" class="toggle-drawer__icon" />
+      <ViewGridAddIcon size="24" class="toggle-drawer__icon icon" />
 
       <span class="toggle-drawer__text">
         Favorites
@@ -38,10 +38,11 @@ export default {
   background-color: $surface2;
   display: grid;
   grid-template-columns: 0 auto auto;
-  padding: $padding;
+  padding: $padding-md $padding;
 
   @include breakpoint('tablet') {
     grid-template-columns: 1fr auto 1fr;
+    padding: $spacing $spacing-lg;
   }
 }
 
