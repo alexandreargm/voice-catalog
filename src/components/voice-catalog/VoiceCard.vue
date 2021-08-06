@@ -1,6 +1,6 @@
 <template>
-  <article class="voice-card shadow">
-    <FavoriteIcon class="voice-card__favorite" :variant="isFavorite" />
+  <article class="voice-card shadow" @click="handleClick">
+    <FavoriteIcon class="voice-card__favorite" :variant="isFavoriteClass" />
 
     <img
       class="voice-card__icon"
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
 import FavoriteIcon from './FavoriteIcon.vue'
 
 export default {
@@ -39,12 +40,23 @@ export default {
       default: null
     }
   },
+  methods: {
+    handleClick () {
+      this.toggleFavorite(this.id)
+    },
+    ...mapActions('favorites', [
+      'toggleFavorite'
+    ])
+  },
   computed: {
     imageSrc () {
       return `images/${this.icon}`
     },
-    isFavorite () {
-      return this.$store.getters['favorites/isFavorite'](this.id) ? 'is-favorite' : ''
+    ...mapGetters('favorites', [
+      'isFavorite'
+    ]),
+    isFavoriteClass () {
+      return this.isFavorite(this.id) ? 'is-favorite' : ''
     }
   }
 }
