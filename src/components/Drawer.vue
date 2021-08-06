@@ -1,12 +1,7 @@
 <template>
   <aside v-show="isOpen" class="drawer"
   >
-    <div class="drawer__overlay"
-      @wheel.prevent
-      @touchmove.prevent
-      @scroll.prevent
-      @click="closeDrawer"
-    />
+    <div class="drawer__overlay" @click="closeDrawer" />
 
     <div class="drawer__content">
       <header class="drawer__header">
@@ -38,6 +33,7 @@
 </template>
 
 <script>
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { XIcon } from '@vue-hero-icons/outline'
 import Button from './elements/Button.vue'
 
@@ -59,6 +55,11 @@ export default {
   methods: {
     closeDrawer () {
       this.$emit('close-drawer')
+    }
+  },
+  watch: {
+    isOpen: function () {
+      this.isOpen ? disableBodyScroll(this) : enableBodyScroll(this)
     }
   }
 }
@@ -83,7 +84,15 @@ export default {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 90%;
+
+    @include breakpoint('tablet') {
+      max-width: 600px;
+    }
+  }
+
+  &__header {
+    background-color: $surface3;
   }
 
   &__header-top {
@@ -91,10 +100,8 @@ export default {
     display: flex;
     font-size: $font-xl;
     font-weight: $weight-semibold;
-    gap: $spacing;
-    grid-gap: $spacing;
     justify-content: space-between;
-    padding: $spacing;
+    padding: $spacing-md $spacing;
     width: 100%;
 
     @include breakpoint('tablet') {
