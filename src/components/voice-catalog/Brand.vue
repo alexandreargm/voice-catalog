@@ -1,7 +1,7 @@
 <template>
-  <a href="#" class="brand">
+  <span class="brand">
     Voice catalog
-  </a>
+  </span>
 </template>
 
 <style lang="scss">
@@ -9,6 +9,6 @@
   color: $brand;
   font-size: $font-2xl;
   font-weight: $weight-black;
-  text-decoration: none;
+  user-select: none;
 }
 </style>
