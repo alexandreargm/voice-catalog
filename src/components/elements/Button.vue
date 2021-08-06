@@ -17,6 +17,7 @@ export default {
   align-items: center;
   background-color: transparent;
   border: 0;
+  border-color: $surface1;
   border-radius: $rounded;
   cursor: pointer;
   display: inline-flex;
@@ -26,7 +27,7 @@ export default {
 }
 
 .button.is-secondary {
-  background-color: $surface3;
+  background-color: $surface4;
   color: $text1;
 
   svg {
@@ -35,13 +36,16 @@ export default {
 }
 
 .button.is-round {
-  background-color: $surface4;
   border: 0;
   border-radius: $rounded-full;
   color: $text2;
   cursor: pointer;
   line-height: 1;
   padding: $padding-sm;
+}
+
+.button.is-outline {
+  border: 2px solid;
 }
 
 </style>
