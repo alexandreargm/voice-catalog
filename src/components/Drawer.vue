@@ -112,11 +112,6 @@ export default {
   &__header-content {
     display: flex;
     flex-direction: column;
-    padding: $spacing;
-
-    @include breakpoint('tablet') {
-      padding: $spacing $spacing-lg;
-    }
   }
 
   &__close-button {
