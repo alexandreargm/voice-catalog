@@ -1,3 +1,4 @@
+// Casts a soft shadow under the component
 .shadow {
   border: 1px solid hsl($brand-hue 10% 50% / 15%);
   box-shadow: 0 3px 3px $surface-shadow;
@@ -8,4 +9,10 @@
     0 8px 16px $surface-shadow,
     0 16px 32px $surface-shadow, 
     0 32px 64px $surface-shadow;
+}
+
+// Prevents icons from shrinking
+.icon {
+  height: auto;
+  max-width: none;
 }
