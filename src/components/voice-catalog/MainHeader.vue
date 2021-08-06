@@ -5,7 +5,7 @@
 
     <brand />
 
-    <Button variant="is-secondary" class="toggle-drawer" @click="toggleDrawer">
+    <Button variant="is-secondary" class="toggle-drawer" @click="toggleFavoriteDrawer">
       <ViewGridAddIcon size="24" class="toggle-drawer__icon" />
 
       <span class="toggle-drawer__text">
@@ -27,7 +27,7 @@ export default {
     ViewGridAddIcon
   },
   methods: {
-    ...mapActions('favorites', ['toggleDrawer'])
+    ...mapActions('favorites', ['toggleFavoriteDrawer'])
   }
 }
 </script>
