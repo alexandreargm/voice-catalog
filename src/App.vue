@@ -1,39 +1,29 @@
 <template>
   <div id="app" class="app">
     <div class="layout">
-      <header class="layout__header">
+      <main-header class="layout__header" />
 
-      </header>
+      <div class="page-content layout__body">
+        <main class="page-cotent__main">
+          <voices-feed />
+        </main>
 
-      <!-- All voices -->
-      <main class="layout__main">
-        <feed>
-          <voice-card
-            id="1"
-            name="Hola mundo"
-            icon="VoicesVoiceIcon01.png"
-          />
-        </feed>
-      </main>
-
-      <!-- Favorited voices -->
-      <drawer class="layout__drawer">
-        <!-- Favorites filter -->
-      </drawer>
+        <favorites-drawer class="page-content__aside" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Feed from './components/Feed.vue'
-import Drawer from './components/Drawer.vue'
-import VoiceCard from './components/VoiceCard.vue'
+import MainHeader from '@/components/voice-catalog/MainHeader.vue'
+import VoicesFeed from '@/components/voice-catalog/VoicesFeed.vue'
+import FavoritesDrawer from '@/components/voice-catalog/FavoritesDrawer.vue'
 
 export default {
   components: {
-    Drawer,
-    VoiceCard,
-    Feed
+    MainHeader,
+    VoicesFeed,
+    FavoritesDrawer
   }
 }
 </script>
@@ -43,5 +33,6 @@ export default {
 
 .layout {
   background-color: $surface1;
+  position: relative;
 }
 </style>
