@@ -10,7 +10,7 @@
       </div>
     </template>
 
-    <div class="favorites-drawer__grid">
+    <div class="favorites-drawer__body">
       <grid class="is-compact">
         <voice-card
           v-for="favorite in favorites"
@@ -70,8 +70,9 @@ export default {
     }
   }
 
-  &__grid {
+  &__body {
     background-color: $surface1;
+    flex-grow: 1;
   }
 }
 </style>
