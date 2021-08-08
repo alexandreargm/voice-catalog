@@ -24,7 +24,6 @@ export default {
       gap: $spacing;
       grid-gap: $spacing;
       grid-template-columns: repeat(2, 1fr);
-      // justify-items: center;
       padding: $padding;
 
       @include breakpoint('tablet') {
