@@ -6,50 +6,37 @@
 
     <template #header>
       <div class="favorites-drawer__searchbar">
-        <searchbar />
+        <searchbar v-model="test" />
       </div>
     </template>
 
     <div class="favorites-drawer__body">
-      <grid class="is-compact">
-        <voice-card
-          v-for="favorite in favorites"
-          :key="favorite.id"
-          :id="favorite.id"
-          :name="favorite.name"
-          :icon="favorite.icon"
-          :tags="favorite.tags"
-        />
-      </grid>
+      <favorites-feed-grid />
     </div>
   </drawer>
 </template>
 
 <script>
-import { mapState, mapActions, mapGetters } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Drawer from '@/components/Drawer.vue'
 import Searchbar from '@/components/voice-catalog/Searchbar.vue'
-import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
-import Grid from '@/components/Grid.vue'
+import FavoritesFeedGrid from './FavoritesFeedGrid.vue'
 
 export default {
   components: {
     Drawer,
     Searchbar,
-    VoiceCard,
-    Grid
+    FavoritesFeedGrid
+  },
+  data () {
+    return {
+      test: null
+    }
   },
   computed: {
-    favorites () {
-      return this.voices.filter(voice => this.isFavorite(voice.id))
-    },
     ...mapState({
-      voices: (state) => state.voices.items,
       favoritesDrawerIsOpen: (state) => state.favorites.isDrawerOpen
-    }),
-    ...mapGetters('favorites', [
-      'isFavorite'
-    ])
+    })
   },
   methods: {
     ...mapActions('favorites', [
