@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Button from '../elements/Button.vue'
+import Button from '@/components/elements/Button.vue'
 import { SearchIcon } from '@vue-hero-icons/solid'
 export default {
   props: {

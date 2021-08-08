@@ -35,7 +35,7 @@
 <script>
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { XIcon } from '@vue-hero-icons/outline'
-import Button from './elements/Button.vue'
+import Button from '../elements/Button.vue'
 
 export default {
   components: {

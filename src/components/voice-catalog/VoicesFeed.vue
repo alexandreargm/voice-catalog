@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import VoicesFeedFilter from './VoicesFeedFilter.vue'
-import VoicesFeedGrid from './VoicesFeedGrid.vue'
+import VoicesFeedFilter from '@/components/voice-catalog/VoicesFeedFilter.vue'
+import VoicesFeedGrid from '@/components/voice-catalog/VoicesFeedGrid.vue'
 export default {
   components: { VoicesFeedFilter, VoicesFeedGrid }
 }

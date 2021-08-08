@@ -17,8 +17,8 @@
 
 <script>
 import { ViewGridAddIcon } from '@vue-hero-icons/solid'
-import Button from '../elements/Button.vue'
-import Brand from './Brand.vue'
+import Button from '@/components/elements/Button.vue'
+import Brand from '@/components/voice-catalog/Brand.vue'
 import { mapActions } from 'vuex'
 export default {
   components: {

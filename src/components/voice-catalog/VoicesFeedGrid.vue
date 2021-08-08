@@ -13,7 +13,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import Grid from '@/components/Grid.vue'
+import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 
 export default {

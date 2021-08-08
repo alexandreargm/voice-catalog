@@ -13,7 +13,7 @@
 
 <script>
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
-import Grid from '@/components/Grid.vue'
+import Grid from '@/components/generic/Grid.vue'
 import { mapState, mapGetters } from 'vuex'
 
 export default {

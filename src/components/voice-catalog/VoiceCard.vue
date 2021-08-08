@@ -18,7 +18,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import FavoriteIcon from './FavoriteIcon.vue'
+import FavoriteIcon from '@/components/voice-catalog/FavoriteIcon.vue'
 
 export default {
   components: { FavoriteIcon },

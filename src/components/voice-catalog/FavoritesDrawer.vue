@@ -18,9 +18,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
-import Drawer from '@/components/Drawer.vue'
+import Drawer from '@/components/generic/Drawer.vue'
 import Searchbar from '@/components/voice-catalog/Searchbar.vue'
-import FavoritesFeedGrid from './FavoritesFeedGrid.vue'
+import FavoritesFeedGrid from '@/components/voice-catalog/FavoritesFeedGrid.vue'
 
 export default {
   components: {
