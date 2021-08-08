@@ -1,30 +1,37 @@
 <template>
-  <form action="" class="searchbar" @submit.prevent="handleSearch">
-    <input class="searchbar__input" v-model="searchText" aria-label="Search a voice" type="text" name="" id="" placeholder="Search a voice">
-    <Button variant="is-secondary" class="searchbar__submit">
+  <div class="searchbar" v-bind="value">
+    <input
+      class="searchbar__input"
+      @input="$emit('input', $event.target.value)"
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Search a voice"
+      aria-label="Search a voice"
+    />
+
+    <Button
+      variant="is-secondary"
+      class="searchbar__submit"
+      type="submit">
       <SearchIcon class="searchbar__submit-icon icon" />
     </Button>
-  </form>
+  </div>
 </template>
 
 <script>
 import Button from '../elements/Button.vue'
 import { SearchIcon } from '@vue-hero-icons/solid'
 export default {
+  props: {
+    value: {
+      type: String,
+      default: ''
+    }
+  },
   components: {
     Button,
     SearchIcon
-  },
-  data () {
-    return {
-      searchText: ''
-    }
-  },
-  methods: {
-    handleSearch () {
-      this.$emit('searchbar-submit', this.searchText)
-      console.log(this.searchText)
-    }
   }
 }
 </script>
