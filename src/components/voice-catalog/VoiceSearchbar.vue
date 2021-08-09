@@ -1,25 +1,23 @@
 <template>
   <form @submit.prevent="$emit('submit', options)" class="voice-searchbar">
-    <div class="voice-searchbar__categories">
-      <select-input v-model="options.category" name="categories" :options="categories" />
-    </div>
+    <select-input
+      class="voice-searchbar__categories"
+      v-model="options.category"
+      :variant="['is-secondary','is-not-rounded-right', 'no-border']"
+      name="categories"
+      :options="categories"
+    />
 
-    <div class="voice-searchbar__text-input">
-      <search-input
-        class="voice-searchbar__input"
-        v-model="options.search"
-        type="text"
-        name="search"
-        id="search"
-        placeholder="Search a voice"
-        aria-label="Search a voice"
-        variant="not-rounded-right"
-      />
-    </div>
-
-    <Button variant="is-secondary" class="voice-searchbar__submit" type="submit">
-      <SearchIcon class="voice-searchbar__submit-icon icon" />
-    </Button>
+    <search-input
+      class="voice-searchbar__search-input"
+      v-model="options.search"
+      type="text"
+      name="search"
+      id="search"
+      placeholder="Search a voice"
+      aria-label="Search a voice"
+      variant="is-not-rounded-left"
+    />
   </form>
 </template>
 
@@ -27,14 +25,10 @@
 import { mapActions, mapGetters } from 'vuex'
 import SearchInput from '@/components/elements/SearchInput.vue'
 import SelectInput from '@/components/elements/SelectInput.vue'
-import Button from '@/components/elements/Button.vue'
-import { SearchIcon } from '@vue-hero-icons/solid'
 export default {
   components: {
     SearchInput,
-    SelectInput,
-    Button,
-    SearchIcon
+    SelectInput
   },
   data () {
     return {
@@ -57,12 +51,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions('categories', [
-      'fetchCategories'
-    ]),
-    ...mapGetters('categories', [
-      'getCategories'
-    ])
+    ...mapActions('categories', ['fetchCategories']),
+    ...mapGetters('categories', ['getCategories'])
   },
   created () {
     this.fetchCategories()
@@ -73,12 +63,10 @@ export default {
 <style lang="scss">
 .voice-searchbar {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
 
-  &__submit {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    padding: $padding-sm $padding;
+  &__categories {
+    font-weight: $weight-semibold;
   }
 }
 </style>
