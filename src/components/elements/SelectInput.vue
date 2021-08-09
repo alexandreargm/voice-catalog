@@ -1,6 +1,7 @@
 <template>
-  <select class="select-input" :name="name" @change="handleSelect" :id="name">
+  <select class="select-input" :class="variant" :name="name" @change="handleSelect" :id="name">
     <option
+      class="select-input__option"
       v-for="option in options"
       :key="option.id"
       :value="option.id"
@@ -54,8 +55,17 @@ export default {
   padding: $input-padding;
 }
 
-.select-input.not-rounded-right {
+.select-input.is-secondary {
+  background-color: $surface4;
+  color: $text1;
+}
+
+.select-input.is-not-rounded-right {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
+}
+
+.select-input.no-border {
+  border: 0;
 }
 </style>
