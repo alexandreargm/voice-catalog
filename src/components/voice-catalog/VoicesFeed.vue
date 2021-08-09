@@ -1,15 +1,15 @@
 <template>
   <section class="voices-feed">
-    <voices-feed-filter />
+    <voices-feed-filters />
 
     <voices-feed-grid />
   </section>
 </template>
 
 <script>
-import VoicesFeedFilter from '@/components/voice-catalog/VoicesFeedFilter.vue'
+import VoicesFeedFilters from '@/components/voice-catalog/VoicesFeedFilters.vue'
 import VoicesFeedGrid from '@/components/voice-catalog/VoicesFeedGrid.vue'
 export default {
-  components: { VoicesFeedFilter, VoicesFeedGrid }
+  components: { VoicesFeedFilters, VoicesFeedGrid }
 }
 </script>
