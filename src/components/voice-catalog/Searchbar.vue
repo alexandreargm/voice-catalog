@@ -1,5 +1,5 @@
 <template>
-  <div class="searchbar" v-bind="value">
+  <div class="searchbar" v-bind:value="value">
     <input
       class="searchbar__input"
       @input="$emit('input', $event.target.value)"
@@ -13,7 +13,8 @@
     <Button
       variant="is-secondary"
       class="searchbar__submit"
-      type="submit">
+      type="submit"
+    >
       <SearchIcon class="searchbar__submit-icon icon" />
     </Button>
   </div>
