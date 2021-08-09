@@ -4,8 +4,15 @@ const state = {
 }
 
 const getters = {
-  getFavorites (state) {
+  getFavoritesIds (state) {
     return state.ids
+  },
+  getFavoritesByFiltering (state) {
+    return voices => {
+      if (!voices) throw new Error('"getFavorites" Vuex getter requires a voices object param to filter')
+
+      return voices.filter(voice => state.ids.includes(voice.id))
+    }
   },
   isFavorite (state) {
     return id => state.ids.find(favoriteId => favoriteId === id) !== undefined
