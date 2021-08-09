@@ -23,7 +23,7 @@ export default {
     display: none;
     margin-left: $spacing-sm;
 
-    @include breakpoint('tablet') {
+    @include breakpoint('mobile2') {
       display: block;
     }
   }
