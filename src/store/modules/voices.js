@@ -1,13 +1,13 @@
 const state = {
-  items: []
+  all: []
 }
 
 const getters = {
-  getVoices: state => state.items
+  getVoices: state => state.all
 }
 
 const actions = {
-  async getVoices ({ commit }) {
+  async fetchVoices ({ commit }) {
     const getVoicesJson = await fetch('voices.json')
     const getVoices = await getVoicesJson.json()
 
@@ -19,7 +19,7 @@ const actions = {
 
 const mutations = {
   SET_VOICES (state, voices) {
-    state.items = voices
+    state.all = voices
   }
 }
 
