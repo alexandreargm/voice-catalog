@@ -5,7 +5,7 @@
 
     <brand />
 
-    <Button variant="is-secondary" class="toggle-drawer" @click="toggleFavoriteDrawer">
+    <Button :variant="['is-secondary', 'is-compact']" class="toggle-drawer" @click="toggleFavoriteDrawer">
       <ViewGridAddIcon size="24" class="toggle-drawer__icon icon" />
 
       <span class="toggle-drawer__text">
@@ -47,10 +47,7 @@ export default {
 }
 
 .toggle-drawer {
-  border-radius: $rounded;
-  font-weight: $weight-semibold;
   justify-self: end;
-  padding: $spacing-sm;
 
   &__text {
     display: none;
