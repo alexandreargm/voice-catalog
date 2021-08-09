@@ -84,11 +84,8 @@ export default {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    max-width: 90%;
-
-    @include breakpoint('tablet') {
-      max-width: 600px;
-    }
+    max-width: 600px;
+    width: 90%;
   }
 
   &__header {
