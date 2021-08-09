@@ -1,6 +1,5 @@
 <template>
-  <aside v-show="isOpen" class="drawer"
-  >
+  <aside v-show="isOpen" class="drawer">
     <div class="drawer__overlay" @click="closeDrawer" />
 
     <div class="drawer__content">
@@ -73,6 +72,7 @@ export default {
   position: fixed;
   right: 0;
   top: 0;
+  z-index: $z-fixed;
 
   &__overlay {
     background-color: rgba($surface-shadow, 0.4);
