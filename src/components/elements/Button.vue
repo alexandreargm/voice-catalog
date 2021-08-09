@@ -21,6 +21,7 @@ export default {
   border-radius: $rounded;
   cursor: pointer;
   display: inline-flex;
+  font-weight: $weight-semibold;
   max-width: 100%;
   padding: $padding-sm $padding-lg;
   vertical-align: middle;
@@ -46,6 +47,10 @@ export default {
 
 .button.is-outline {
   border: 2px solid;
+}
+
+.button.is-compact {
+  padding: $padding-sm $padding-md;
 }
 
 </style>
