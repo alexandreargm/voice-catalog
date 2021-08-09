@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 
@@ -23,11 +23,16 @@ export default {
   },
   computed: {
     ...mapState({
-      voices: (state) => state.voices.items
+      voices: state => state.voices.all
     })
   },
+  methods: {
+    ...mapActions('voices', [
+      'fetchVoices'
+    ])
+  },
   created () {
-    this.$store.dispatch('voices/getVoices')
+    this.fetchVoices()
   }
 }
 </script>
