@@ -14,7 +14,7 @@
 <script>
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 import Grid from '@/components/generic/Grid.vue'
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -23,13 +23,13 @@ export default {
   },
   computed: {
     favorites () {
-      return this.voices.filter(voice => this.isFavorite(voice.id))
+      return this.getFavoritesByFiltering(this.getVoices)
     },
-    ...mapState({
-      voices: (state) => state.voices.items
-    }),
+    ...mapGetters('voices', [
+      'getVoices'
+    ]),
     ...mapGetters('favorites', [
-      'isFavorite'
+      'getFavoritesByFiltering'
     ])
   }
 }

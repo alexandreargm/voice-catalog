@@ -1,7 +1,7 @@
 <template>
   <grid class="voices-feed-grid">
     <voice-card
-      v-for="voice in voices"
+      v-for="voice in getVoices"
       :key="voice.id"
       :id="voice.id"
       :name="voice.name"
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 
@@ -22,9 +22,9 @@ export default {
     Grid
   },
   computed: {
-    ...mapState({
-      voices: state => state.voices.all
-    })
+    ...mapGetters('voices', [
+      'getVoices'
+    ])
   },
   methods: {
     ...mapActions('voices', [

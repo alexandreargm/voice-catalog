@@ -1,12 +1,12 @@
 <template>
-  <drawer class="favorites-drawer" :is-open="favoritesDrawerIsOpen" @close-drawer="toggleFavoriteDrawer" >
+  <drawer class="favorites-drawer" :is-open="isFavoriteDrawerOpen" @close-drawer="toggleFavoriteDrawer" >
     <template #title>
       Favorites
     </template>
 
     <template #header>
       <div class="favorites-drawer__searchbar">
-        <searchbar v-model="test" />
+        <!-- <voice-searchbar v-model="test" /> -->
       </div>
     </template>
 
@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Drawer from '@/components/generic/Drawer.vue'
-import Searchbar from '@/components/voice-catalog/Searchbar.vue'
 import FavoritesFeedGrid from '@/components/voice-catalog/FavoritesFeedGrid.vue'
+// import VoiceSearchbar from './VoiceSearchbar.vue'
 
 export default {
   components: {
     Drawer,
-    Searchbar,
+    // VoiceSearchbar,
     FavoritesFeedGrid
   },
   data () {
@@ -34,9 +34,9 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      favoritesDrawerIsOpen: (state) => state.favorites.isDrawerOpen
-    })
+    ...mapGetters('favorites', [
+      'isFavoriteDrawerOpen'
+    ])
   },
   methods: {
     ...mapActions('favorites', [
