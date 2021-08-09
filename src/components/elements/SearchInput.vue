@@ -8,8 +8,8 @@
       :name="name"
       :id="name"
       @input="$emit('input', $event.target.value)"
-      placeholder="Search a voice"
-      aria-label="Search a voice"
+      placeholder="Search voices"
+      aria-label="Search voices"
     />
   </div>
 </template>
@@ -60,10 +60,16 @@ export default {
   }
 }
 
-.search-input.no-rounded-right {
+.search-input.is-not-rounded {
   .search-input__input {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
+    border-radius: 0;
+  }
+}
+
+.search-input.is-not-rounded-left {
+  .search-input__input {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }
 </style>
