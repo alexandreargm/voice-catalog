@@ -50,9 +50,10 @@ export default {
 
 <style lang="scss">
 .select-input {
+  border: 0;
   border-radius: $input-radius;
   height: $input-height;
-  padding: $input-padding;
+  padding: 0 $input-padding;
 }
 
 .select-input.is-secondary {
@@ -65,7 +66,11 @@ export default {
   border-top-right-radius: 0;
 }
 
-.select-input.no-border {
-  border: 0;
+.select-input.is-round {
+  border-radius: $rounded-full;
+}
+
+.select-input.is-compact {
+  height: $height;
 }
 </style>

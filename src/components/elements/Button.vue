@@ -23,7 +23,8 @@ export default {
   display: inline-flex;
   font-weight: $weight-semibold;
   max-width: 100%;
-  padding: $padding-sm $padding-lg;
+  min-height: 40px;
+  padding: 0 $padding-lg;
   vertical-align: middle;
 }
 
@@ -50,7 +51,7 @@ export default {
 }
 
 .button.is-compact {
-  padding: $padding-sm $padding-md;
+  padding: 0 $padding-md;
 }
 
 </style>

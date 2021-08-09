@@ -54,8 +54,8 @@ export default {
     border-radius: $input-radius;
     flex: 1 1;
     height: 100%;
-    padding: $input-padding;
     padding-left: $icon-size;
+    padding-right: $input-padding;
     width: 100%;
   }
 }
