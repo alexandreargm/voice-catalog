@@ -5,7 +5,7 @@ const state = {
 
 const getters = {
   getVoices: state => state.all,
-  getFavorites: state => state.all.filter(voice => state.favoriteIds.includes(voice.id)),
+  getFavoriteVoices: state => state.all.filter(voice => state.favoriteIds.includes(voice.id)),
   isFavoriteVoice: state => id => state.favoriteIds.find(favoriteId => favoriteId === id) !== undefined
 }
 
