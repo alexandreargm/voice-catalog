@@ -1,7 +1,7 @@
 <template>
   <grid class="is-compact">
     <voice-card
-      v-for="favorite in getFavorites"
+      v-for="favorite in getFavoriteVoices"
       :key="favorite.id"
       :id="favorite.id"
       :name="favorite.name"
@@ -27,7 +27,7 @@ export default {
     // },
     ...mapGetters('voices', [
       'getVoices',
-      'getFavorites'
+      'getFavoriteVoices'
     ])
   }
 }
