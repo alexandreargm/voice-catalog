@@ -53,4 +53,8 @@ export default {
   padding: 0 $padding-md;
 }
 
+.button.is-minimal {
+  padding: 0;
+}
+
 </style>
