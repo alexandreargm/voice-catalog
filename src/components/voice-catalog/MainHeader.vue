@@ -5,7 +5,7 @@
 
     <brand />
 
-    <Button :variant="['is-secondary', 'is-compact']" class="toggle-drawer" @click="toggleFavoriteDrawer">
+    <Button :variant="['is-compact']" class="toggle-drawer" @click="toggleFavoriteDrawer">
       <ViewGridAddIcon size="24" class="toggle-drawer__icon icon" />
 
       <span class="toggle-drawer__text">
