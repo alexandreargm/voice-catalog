@@ -1,10 +1,10 @@
 <template>
   <section class="voices-feed">
-    <voice-searchbar v-model="searchOptions" @submit="handleFeedSearch" class="voices-feed__searchbar" />
+    <voices-feed-filters v-model="searchOptions" class="voices-feed__filters" />
 
     <grid class="voices-feed__grid">
       <voice-card
-        v-for="voice in getVoices"
+        v-for="voice in filteredVoices"
         :key="voice.id"
         :id="voice.id"
         :name="voice.name"
@@ -16,16 +16,16 @@
 </template>
 
 <script>
-import VoiceSearchbar from './VoiceSearchbar.vue'
+import { mapGetters, mapActions } from 'vuex'
 import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
-import { mapGetters, mapActions } from 'vuex'
+import VoicesFeedFilters from './VoicesFeedFilters.vue'
 
 export default {
   components: {
     VoiceCard,
     Grid,
-    VoiceSearchbar
+    VoicesFeedFilters
   },
   data () {
     return {
@@ -33,13 +33,20 @@ export default {
     }
   },
   computed: {
+    filteredVoices () {
+      return this.getFilteredVoices(this.searchOptions)
+    },
     ...mapGetters('voices', [
-      'getVoices'
+      'getVoices',
+      'getFilteredVoices'
     ])
   },
   methods: {
     handleFeedSearch () {
       console.log('searching feed')
+    },
+    handleRandomVoice () {
+      console.log('random')
     },
     ...mapActions('voices', [
       'fetchVoices'
@@ -53,6 +60,12 @@ export default {
 
 <style lang="scss">
 .voices-feed {
-  padding: $padding;
+  &__filters {
+    padding: $padding;
+
+    @include breakpoint('tablet') {
+      padding: $padding-xl;
+    }
+  }
 }
 </style>
