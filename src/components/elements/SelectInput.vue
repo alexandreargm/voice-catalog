@@ -1,19 +1,24 @@
 <template>
-  <select class="select-input" :class="variant" :name="name" @change="handleSelect" :id="name">
-    <option
-      class="select-input__option"
-      v-for="option in options"
-      :key="option.id"
-      :value="option.id"
-      :selected="selectedValue === option.id"
-    >
-      {{ option.title }}
-    </option>
+  <div class="select-input__wrapper">
+    <div v-if="$slots.icon" class="select-input__icon">
+      <slot name="icon" />
+    </div>
 
-    <slot v-if="!options">
-      <option value="">Missing options</option>
-    </slot>
-  </select>
+    <select class="select-input" :class="[variant, hasIconClass]" :name="name" @change="handleSelect" :id="name">
+      <option
+        class="select-input__option"
+        v-for="option in options"
+        :key="option.id"
+        :value="option.id"
+        :selected="selectedValue === option.id"
+      >
+        {{ option.title }}
+      </option>
+      <slot v-if="!options">
+        <option value="">Missing options</option>
+      </slot>
+    </select>
+  </div>
 </template>
 
 <script>
@@ -44,6 +49,11 @@ export default {
       this.selectedValue = event.target.value
       this.$emit('change', this.selectedValue)
     }
+  },
+  computed: {
+    hasIconClass () {
+      return this.$slots.icon ? 'has-icon' : ''
+    }
   }
 }
 </script>
@@ -54,6 +64,23 @@ export default {
   border-radius: $input-radius;
   height: $input-height;
   padding: 0 $input-padding;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__option {
+    font-size: $font;
+  }
+
+  &__icon {
+    color: $text2;
+    display: flex;
+    left: $spacing-md;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .select-input.is-secondary {
@@ -72,5 +99,9 @@ export default {
 
 .select-input.is-compact {
   height: $height;
+}
+
+.select-input.has-icon {
+  padding-left: $input-height;
 }
 </style>
