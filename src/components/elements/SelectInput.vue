@@ -33,6 +33,10 @@ export default {
     options: {
       type: Array,
       default: null
+    },
+    selected: {
+      type: String,
+      default: ''
     }
   },
   model: {
@@ -48,7 +52,13 @@ export default {
     handleSelect (event) {
       this.selectedValue = event.target.value
       this.$emit('change', this.selectedValue)
+    },
+    setDefaultValue () {
+      this.selectedValue = this.selected
     }
+  },
+  created () {
+    this.setDefaultValue()
   },
   computed: {
     hasIconClass () {
