@@ -17,8 +17,8 @@ export default {
   align-items: center;
   background-color: transparent;
   border: 0;
-  border-color: $surface1;
   border-radius: $rounded;
+  color: $text1;
   cursor: pointer;
   display: inline-flex;
   font-weight: $weight-semibold;
@@ -26,21 +26,20 @@ export default {
   min-height: 40px;
   padding: 0 $padding-lg;
   vertical-align: middle;
-}
-
-.button.is-secondary {
-  background-color: $surface4;
-  color: $text1;
 
   svg {
     color: $text2;
   }
 }
 
+.button.is-secondary {
+  background-color: $surface4;
+  border-color: $surface1;
+}
+
 .button.is-round {
   border: 0;
   border-radius: $rounded-full;
-  color: $text2;
   cursor: pointer;
   line-height: 1;
   padding: $padding-sm;
