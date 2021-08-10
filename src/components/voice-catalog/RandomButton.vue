@@ -1,5 +1,5 @@
 <template>
-  <Button class="random-button__" :variant="['is-secondary', 'is-compact']" type="button">
+  <Button class="random-button__" :variant="['is-secondary', 'is-compact']" type="button" @click="$emit('click')">
     <RefreshIcon class="random-button__icon" />
 
     <span class="random-button__text"> Random</span>
