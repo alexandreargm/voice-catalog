@@ -8,6 +8,7 @@
       :name="name"
       :id="name"
       @input="$emit('input', $event.target.value)"
+      @keypress.enter="blurInput"
       placeholder="Search voices"
       aria-label="Search voices"
     />
@@ -29,6 +30,11 @@ export default {
     value: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    blurInput (event) {
+      event.target.blur()
     }
   }
 }
