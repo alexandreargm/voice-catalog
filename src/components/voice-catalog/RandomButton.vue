@@ -1,6 +1,6 @@
 <template>
   <Button class="random-button__" :variant="['is-secondary', 'is-compact']" type="button">
-    <SparklesIcon class="random-button__icon" />
+    <RefreshIcon class="random-button__icon" />
 
     <span class="random-button__text"> Random</span>
   </Button>
@@ -8,11 +8,11 @@
 
 <script>
 import Button from '@/components/elements/Button.vue'
-import { SparklesIcon } from '@vue-hero-icons/solid'
+import { RefreshIcon } from '@vue-hero-icons/solid'
 export default {
   components: {
     Button,
-    SparklesIcon
+    RefreshIcon
   }
 }
 </script>
