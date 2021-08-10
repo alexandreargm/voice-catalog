@@ -42,21 +42,21 @@ export default {
   },
   methods: {
     handleClick () {
-      this.toggleFavorite(this.id)
+      this.toggleFavoriteVoice(this.id)
     },
-    ...mapActions('favorites', [
-      'toggleFavorite'
+    ...mapActions('voices', [
+      'toggleFavoriteVoice'
     ])
   },
   computed: {
     imageSrc () {
       return `images/${this.icon}`
     },
-    ...mapGetters('favorites', [
-      'isFavorite'
+    ...mapGetters('voices', [
+      'isFavoriteVoice'
     ]),
     isFavoriteClass () {
-      return this.isFavorite(this.id) ? 'is-favorite' : ''
+      return this.isFavoriteVoice(this.id) ? 'is-favorite' : ''
     }
   }
 }

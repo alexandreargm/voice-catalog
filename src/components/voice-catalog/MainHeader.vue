@@ -27,7 +27,7 @@ export default {
     ViewGridAddIcon
   },
   methods: {
-    ...mapActions('favorites', ['toggleFavoriteDrawer'])
+    ...mapActions('favoritesDrawer', ['toggleFavoriteDrawer'])
   }
 }
 </script>
