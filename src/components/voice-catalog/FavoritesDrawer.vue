@@ -34,12 +34,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('favorites', [
+    ...mapGetters('favoritesDrawer', [
       'isFavoriteDrawerOpen'
     ])
   },
   methods: {
-    ...mapActions('favorites', [
+    ...mapActions('favoritesDrawer', [
       'toggleFavoriteDrawer'
     ])
   }

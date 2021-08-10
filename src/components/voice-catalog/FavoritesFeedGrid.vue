@@ -1,7 +1,7 @@
 <template>
   <grid class="is-compact">
     <voice-card
-      v-for="favorite in favorites"
+      v-for="favorite in getFavorites"
       :key="favorite.id"
       :id="favorite.id"
       :name="favorite.name"
@@ -22,14 +22,12 @@ export default {
     VoiceCard
   },
   computed: {
-    favorites () {
-      return this.getFavoritesByFiltering(this.getVoices)
-    },
+    // favorites () {
+    //   // return this.getFavorites()
+    // },
     ...mapGetters('voices', [
-      'getVoices'
-    ]),
-    ...mapGetters('favorites', [
-      'getFavoritesByFiltering'
+      'getVoices',
+      'getFavorites'
     ])
   }
 }
