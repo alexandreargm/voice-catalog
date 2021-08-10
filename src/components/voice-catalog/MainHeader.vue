@@ -3,9 +3,9 @@
 
     <div class="main-header__item" />
 
-    <brand />
+    <brand class="main-header__brand" />
 
-    <Button :variant="['is-compact']" class="toggle-drawer" @click="toggleFavoriteDrawer">
+    <Button :variant="['is-minimal']" class="toggle-drawer" @click="toggleFavoriteDrawer">
       <ViewGridAddIcon size="24" class="toggle-drawer__icon icon" />
 
       <span class="toggle-drawer__text">
@@ -44,18 +44,21 @@ export default {
     grid-template-columns: 1fr auto 1fr;
     padding: $spacing $spacing-lg;
   }
+
+  &__brand {
+    font-size: $font-xl;
+
+    @include breakpoint('tablet') {
+      font-size: $font-2xl;
+    }
+  }
 }
 
 .toggle-drawer {
   justify-self: end;
 
   &__text {
-    display: none;
     margin-left: $spacing-sm;
-
-    @include breakpoint('tablet') {
-      display: block;
-    }
   }
 }
 </style>
