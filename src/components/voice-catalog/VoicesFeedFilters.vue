@@ -1,7 +1,11 @@
 <template>
-  <form @submit.prevent="$emit('submit', options)" class="voices-feed-filters">
+  <div
+    @change="triggerChange"
+    @input="triggerChange"
+    class="voices-feed-filters"
+  >
     <div class="voices-feed-filters__toolbar">
-      <random-button class="voices-feed-filters__random" />
+      <random-button @click="$emit('random-button')" class="voices-feed-filters__random" />
 
       <search-input
         name="text"
@@ -13,7 +17,8 @@
     <div class="voices-feed-filters__filters">
       <select-input
         name="order"
-        v-model="options.sort"
+        selected="popular"
+        v-model="options.order"
         class="voices-feed-filters__order"
         :variant="['is-secondary', 'is-compact']"
         :options="orderOptions"
@@ -35,7 +40,7 @@
         </template>
       </select-input>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
@@ -57,7 +62,7 @@ export default {
       options: {
         text: '',
         category: '',
-        sort: ''
+        order: 'popular'
       },
       orderOptions: [
         { id: 'popular', title: 'Most popular' },
@@ -67,7 +72,7 @@ export default {
   },
   model: {
     prop: 'options',
-    event: 'submit'
+    event: 'change'
   },
   computed: {
     categories () {
@@ -78,6 +83,9 @@ export default {
     }
   },
   methods: {
+    triggerChange () {
+      this.$emit('change', this.options)
+    },
     ...mapActions('categories', ['fetchCategories']),
     ...mapGetters('categories', ['getCategories'])
   },

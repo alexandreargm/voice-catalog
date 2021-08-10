@@ -1,6 +1,6 @@
 <template>
   <section class="voices-feed">
-    <voices-feed-filters v-model="searchOptions" class="voices-feed__filters" />
+    <voices-feed-filters v-model="findOptions" class="voices-feed__filters" />
 
     <grid class="voices-feed__grid">
       <voice-card
@@ -17,11 +17,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import searchFilters from '@/mixins/search-filters'
 import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 import VoicesFeedFilters from './VoicesFeedFilters.vue'
 
 export default {
+  mixins: [searchFilters],
   components: {
     VoiceCard,
     Grid,
@@ -29,24 +31,45 @@ export default {
   },
   data () {
     return {
-      searchOptions: {}
+      findOptions: {}
     }
   },
   computed: {
     filteredVoices () {
-      return this.getFilteredVoices(this.searchOptions)
+      return this.getFilteredVoices(this.getVoices, this.findOptions)
     },
     ...mapGetters('voices', [
-      'getVoices',
-      'getFilteredVoices'
+      'getVoices'
     ])
   },
   methods: {
-    handleFeedSearch () {
-      console.log('searching feed')
+    getFilteredVoices (voices, searchOptions) {
+      const { text, category, order } = searchOptions
+      const isSearching = Boolean(text || category || order)
+      const orderFunctions = {
+        popular: ({ name: nameA }, { name: nameB }) => nameA.localeCompare(nameB), // A to Z
+        unpopular: ({ name: nameA }, { name: nameB }) => nameA.localeCompare(nameB) < 0 ? 1 : -1 // Z to A
+      }
+
+      let filteredVoices = voices
+
+      if (!isSearching) return filteredVoices
+
+      // Filter by category
+      filteredVoices = this.getByTagFilter(filteredVoices, category)
+
+      // Filter by name
+      filteredVoices = this.getByNameFilter(filteredVoices, text)
+
+      // Order result
+      filteredVoices = this.getInOrderFilter(filteredVoices, order, orderFunctions)
+
+      return filteredVoices
     },
     handleRandomVoice () {
-      console.log('random')
+      const randomVoice = this.getRandomFilter(this.filteredVoices)
+
+      this.filteredVoices = randomVoice
     },
     ...mapActions('voices', [
       'fetchVoices'
