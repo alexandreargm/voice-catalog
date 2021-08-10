@@ -24,6 +24,12 @@ body,
   overflow: auto;
 }
 
+/*
+ * Always show scrollbar to prevent layout shifting
+ */
+body {
+  overflow-y: scroll;
+}
 
 
 /**
