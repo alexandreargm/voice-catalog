@@ -16,6 +16,7 @@
 
       <search-input
         name="text"
+        placeholder="Search voices"
         v-model="options.text"
         class="voices-feed-filters__searchbar"
       />

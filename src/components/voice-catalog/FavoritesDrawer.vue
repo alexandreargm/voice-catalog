@@ -6,12 +6,12 @@
 
     <template #header>
       <div class="favorites-drawer__searchbar">
-        <!-- <voice-searchbar v-model="test" /> -->
+        <search-input v-model="searchValue" placeholder="Search favorite voices" />
       </div>
     </template>
 
     <div class="favorites-drawer__body">
-      <favorites-feed-grid />
+      <favorites-feed />
     </div>
   </drawer>
 </template>
@@ -19,14 +19,19 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import Drawer from '@/components/generic/Drawer.vue'
-import FavoritesFeedGrid from '@/components/voice-catalog/FavoritesFeedGrid.vue'
-// import VoiceSearchbar from './VoiceSearchbar.vue'
+import FavoritesFeed from '@/components/voice-catalog/FavoritesFeed.vue'
+import SearchInput from '../elements/SearchInput.vue'
 
 export default {
   components: {
     Drawer,
-    // VoiceSearchbar,
-    FavoritesFeedGrid
+    SearchInput,
+    FavoritesFeed
+  },
+  data () {
+    return {
+      searchValue: ''
+    }
   },
   computed: {
     ...mapGetters('favoritesDrawer', [

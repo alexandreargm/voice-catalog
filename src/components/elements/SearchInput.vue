@@ -9,8 +9,8 @@
       :id="name"
       @input="$emit('input', $event.target.value)"
       @keypress.enter="blurInput"
-      placeholder="Search voices"
-      aria-label="Search voices"
+      :placeholder="placeholder"
+      :aria-label="placeholder"
     />
   </div>
 </template>
@@ -30,6 +30,10 @@ export default {
     value: {
       type: String,
       default: ''
+    },
+    placeholder: {
+      type: String,
+      default: 'Search...'
     }
   },
   methods: {
