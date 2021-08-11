@@ -1,5 +1,5 @@
 <template>
-  <article class="voice-card shadow" @click="handleClick">
+  <article class="voice-card shadow" @click="handleClick" :class="variant">
     <FavoriteIcon class="voice-card__favorite" :variant="isFavoriteClass" />
 
     <img
@@ -17,10 +17,12 @@
 </template>
 
 <script>
+import { variant } from '@/mixins/component-utils'
 import { mapActions, mapGetters } from 'vuex'
 import FavoriteIcon from '@/components/voice-catalog/FavoriteIcon.vue'
 
 export default {
+  mixins: [variant],
   components: { FavoriteIcon },
   props: {
     id: {
@@ -67,6 +69,7 @@ export default {
   background-color: $surface3;
   border-radius: $rounded-lg;
   cursor: pointer;
+  max-width: 160px;
   padding: $padding;
   padding-bottom: $padding-lg;
   padding-top: $padding-sm;
@@ -74,9 +77,15 @@ export default {
   text-align: center;
   user-select: none;
 
+  @include breakpoint('tablet') {
+    width: 160px;
+  }
+
   &__name {
     font-size: $font-md;
     font-weight: $weight-semibold;
+    line-height: 1.4;
+    overflow-y: hidden;
   }
 
   &__favorite {
@@ -84,5 +93,15 @@ export default {
     right: 0;
     top: 0;
   }
+}
+
+.voice-card.is-big-text {
+  .voice-card__name {
+    font-size: $font-lg;
+  }
+}
+
+.voice-card.no-shadow {
+  box-shadow: none;
 }
 </style>
