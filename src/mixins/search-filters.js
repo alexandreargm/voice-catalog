@@ -22,7 +22,7 @@ export const searchFilters = {
       const haystackSize = haystack.length
       const randomItemIndex = Math.floor(Math.random() * haystackSize)
 
-      return [haystack[randomItemIndex]]
+      return haystack[randomItemIndex]
     }
   }
 }
