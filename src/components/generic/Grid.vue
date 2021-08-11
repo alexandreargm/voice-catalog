@@ -30,6 +30,7 @@ export default {
     max-width: 100%;
 
     &__empty-message {
+      color: $text2;
       font-size: $font-xl;
     }
 
