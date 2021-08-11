@@ -4,7 +4,10 @@
     @input="triggerChange"
     class="voices-feed-filters"
   >
-    <div class="voices-feed-filters__toolbar">
+    <div
+      class="voices-feed-filters__toolbar"
+      :class="isToolbarFixed? 'is-fixed-top' : ''"
+    >
       <random-button
         @click="$emit('random-button')"
         class="voices-feed-filters__random"
@@ -17,7 +20,8 @@
         class="voices-feed-filters__searchbar"
       />
 
-      <toggle-favorites-button
+      <toggle-favorites-drawer
+        v-if="isToolbarFixed"
         class="voices-feed-filters__toggle-favorites"
         :variant="['hide-text']"
       />
@@ -58,7 +62,7 @@ import SearchInput from '@/components/elements/SearchInput.vue'
 import SelectInput from '@/components/elements/SelectInput.vue'
 import RandomButton from '@/components/voice-catalog/RandomButton.vue'
 import { TagIcon, SwitchVerticalIcon } from '@vue-hero-icons/solid'
-import ToggleFavoritesButton from './ToggleFavoritesDrawer.vue'
+import ToggleFavoritesDrawer from './ToggleFavoritesDrawer.vue'
 export default {
   components: {
     SearchInput,
@@ -66,7 +70,7 @@ export default {
     SelectInput,
     TagIcon,
     SwitchVerticalIcon,
-    ToggleFavoritesButton
+    ToggleFavoritesDrawer
   },
   data () {
     return {
@@ -78,7 +82,9 @@ export default {
       orderOptions: [
         { id: 'popular', title: 'Most popular' },
         { id: 'unpopular', title: 'Least popular' }
-      ]
+      ],
+      isToolbarFixed: false,
+      lastScrollPosition: 0
     }
   },
   model: {
@@ -97,20 +103,61 @@ export default {
     triggerChange () {
       this.$emit('change', this.options)
     },
+    onScroll () {
+      const mainHeaderOffset = 64 // Same as header main height
+      const scrollTolentaceOffset = 40
+
+      // Get the current scroll position
+      const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+
+      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
+      if (currentScrollPosition < 0) {
+        return
+      }
+
+      // Stop executing this function if the difference between
+      // current scroll position and last scroll position is less than the tolerance offset
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < scrollTolentaceOffset) {
+        return
+      }
+
+      // Fix toolbar on top when scrolled more than mainheader height or
+      // when last position was higher
+      this.isToolbarFixed = currentScrollPosition > mainHeaderOffset
+
+      this.lastScrollPosition = currentScrollPosition
+    },
     ...mapActions('categories', ['fetchCategories']),
     ...mapGetters('categories', ['getCategories'])
   },
   created () {
     this.fetchCategories()
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
   }
 }
 </script>
 
 <style lang="scss">
 .voices-feed-filters {
+  $toolbar-height: 80px;
+
   &__toolbar {
     display: grid;
     grid-template-columns: auto 1fr auto;
+    padding: $spacing-lg;
+    padding-bottom: $spacing;
+    position: absolute;
+    width: 100%;
+    z-index: $z-fixed;
+  }
+
+  &__toolbar.is-fixed-top {
+    background-color: $surface2;
+    position: fixed;
+    top: 0;
   }
 
   &__random {
@@ -120,8 +167,9 @@ export default {
   &__filters {
     display: flex;
     font-size: $font-md;
-    margin-top: $spacing-lg;
     overflow-x: auto;
+    padding: $spacing $spacing-lg;
+    padding-top: $toolbar-height;
   }
 
   &__toggle-favorites {
