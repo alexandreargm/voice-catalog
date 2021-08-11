@@ -28,11 +28,6 @@ export default {
     // VoiceSearchbar,
     FavoritesFeedGrid
   },
-  data () {
-    return {
-      test: null
-    }
-  },
   computed: {
     ...mapGetters('favoritesDrawer', [
       'isFavoriteDrawerOpen'
