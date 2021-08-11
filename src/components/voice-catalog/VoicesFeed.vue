@@ -1,6 +1,6 @@
 <template>
   <section class="voices-feed">
-    <voices-feed-filters v-model="findOptions" class="voices-feed__filters" />
+    <voices-feed-filters v-model="findOptions" @random-button="handleRandomVoice" class="voices-feed__filters" />
 
     <grid class="voices-feed__grid">
       <voice-card
@@ -12,6 +12,16 @@
         :tags="voice.tags"
       />
     </grid>
+
+    <voice-modal :is-open="isRandomVoiceModalOpen" @close-modal="closeRandomVoiceModal">
+      <voice-card
+        v-if="randomVoice.id"
+        :id="randomVoice.id"
+        :name="randomVoice.name"
+        :icon="randomVoice.icon"
+        :variant="['no-shadow', 'is-big-text']"
+      />
+    </voice-modal>
   </section>
 </template>
 
@@ -20,23 +30,28 @@ import { mapGetters, mapActions } from 'vuex'
 import searchFilters from '@/mixins/search-filters'
 import Grid from '@/components/generic/Grid.vue'
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
-import VoicesFeedFilters from './VoicesFeedFilters.vue'
+import VoicesFeedFilters from '@/components/voice-catalog/VoicesFeedFilters.vue'
+import VoiceModal from '@/components/voice-catalog/VoiceModal.vue'
 
 export default {
   mixins: [searchFilters],
   components: {
     VoiceCard,
     Grid,
-    VoicesFeedFilters
+    VoicesFeedFilters,
+    VoiceModal
   },
   data () {
     return {
-      findOptions: {}
+      findOptions: {},
+      voices: [],
+      randomVoice: {},
+      isRandomVoiceModalOpen: false
     }
   },
   computed: {
     filteredVoices () {
-      return this.getFilteredVoices(this.getVoices, this.findOptions)
+      return this.getFilteredVoices(this.voices, this.findOptions)
     },
     ...mapGetters('voices', [
       'getVoices'
@@ -67,16 +82,21 @@ export default {
       return filteredVoices
     },
     handleRandomVoice () {
-      const randomVoice = this.getRandomFilter(this.filteredVoices)
-
-      this.filteredVoices = randomVoice
+      this.randomVoice = this.getRandomFilter(this.filteredVoices)
+      this.openRandomVoiceModal()
+    },
+    openRandomVoiceModal () {
+      this.isRandomVoiceModalOpen = true
+    },
+    closeRandomVoiceModal () {
+      this.isRandomVoiceModalOpen = false
     },
     ...mapActions('voices', [
       'fetchVoices'
     ])
   },
-  created () {
-    this.fetchVoices()
+  async created () {
+    this.voices = await this.fetchVoices()
   }
 }
 </script>
