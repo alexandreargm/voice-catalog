@@ -104,15 +104,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.voices-feed {
-  &__filters {
-    padding: $padding;
-
-    @include breakpoint('tablet') {
-      padding: $padding-xl;
-    }
-  }
-}
-</style>
