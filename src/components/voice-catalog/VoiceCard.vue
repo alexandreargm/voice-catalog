@@ -71,7 +71,6 @@ export default {
   cursor: pointer;
   max-width: 160px;
   padding: $padding;
-  padding-bottom: $padding-lg;
   padding-top: $padding-sm;
   position: relative;
   text-align: center;
@@ -82,9 +81,17 @@ export default {
   }
 
   &__name {
-    font-size: $font-md;
+    $line-height: 1.3;
+    $max-lines: 2;
+    $font-size: $font-md;
+    $name-height: $max-lines * $line-height * $font-size;
+
+    font-size: $font-size;
     font-weight: $weight-semibold;
-    line-height: 1.4;
+    height: $name-height;
+    line-height: $line-height;
+    margin: 0 auto;
+    max-width: 120px;
     overflow-y: hidden;
   }
 
@@ -95,9 +102,18 @@ export default {
   }
 }
 
-.voice-card.is-big-text {
+.voice-card.is-big {
+  width: 160px;
+
   .voice-card__name {
-    font-size: $font-lg;
+    $line-height: 1.4;
+    $max-lines: 2;
+    $font-size: $font-lg;
+    $name-height: $max-lines * $line-height * $font-size;
+
+    font-size: $font-size;
+    height: $name-height;
+    line-height: $line-height;
   }
 }
 
