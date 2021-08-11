@@ -13,13 +13,17 @@
       />
     </grid>
 
-    <voice-modal :is-open="isRandomVoiceModalOpen" @close-modal="closeRandomVoiceModal">
+    <voice-modal
+      :is-open="isRandomVoiceModalOpen"
+      @close-modal="closeRandomVoiceModal"
+      @random-button="handleRandomVoice"
+    >
       <voice-card
         v-if="randomVoice.id"
         :id="randomVoice.id"
         :name="randomVoice.name"
         :icon="randomVoice.icon"
-        :variant="['no-shadow', 'is-big-text']"
+        :variant="['no-shadow', 'is-big']"
       />
     </voice-modal>
   </section>
