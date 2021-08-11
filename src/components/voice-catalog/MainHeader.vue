@@ -36,7 +36,6 @@ export default {
 
   @include breakpoint('tablet') {
     grid-template-columns: 1fr auto 1fr;
-    padding: $spacing $spacing-lg;
   }
 
   &__brand {
