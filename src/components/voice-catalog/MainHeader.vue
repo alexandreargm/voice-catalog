@@ -5,26 +5,20 @@
 
     <brand class="main-header__brand" />
 
-    <Button :variant="['is-minimal']" class="toggle-drawer" @click="toggleFavoriteDrawer">
-      <ViewGridAddIcon size="24" class="toggle-drawer__icon icon" />
-
-      <span class="toggle-drawer__text">
-        Favorites
-      </span>
-    </Button>
+    <toggle-favorites-drawer
+      class="main-header__toggle-favorites"
+    />
   </header>
 </template>
 
 <script>
-import { ViewGridAddIcon } from '@vue-hero-icons/solid'
-import Button from '@/components/elements/Button.vue'
-import Brand from '@/components/voice-catalog/Brand.vue'
 import { mapActions } from 'vuex'
+import Brand from '@/components/voice-catalog/Brand.vue'
+import ToggleFavoritesDrawer from '@/components/voice-catalog/ToggleFavoritesDrawer'
 export default {
   components: {
     Brand,
-    Button,
-    ViewGridAddIcon
+    ToggleFavoritesDrawer
   },
   methods: {
     ...mapActions('favoritesDrawer', ['toggleFavoriteDrawer'])
@@ -54,7 +48,7 @@ export default {
   }
 }
 
-.toggle-drawer {
+.toggle-favorites-drawer {
   justify-self: end;
 
   &__text {

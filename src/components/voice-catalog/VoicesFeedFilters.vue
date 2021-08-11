@@ -5,12 +5,21 @@
     class="voices-feed-filters"
   >
     <div class="voices-feed-filters__toolbar">
-      <random-button @click="$emit('random-button')" class="voices-feed-filters__random" />
+      <random-button
+        @click="$emit('random-button')"
+        class="voices-feed-filters__random"
+        variant="hide-xs"
+      />
 
       <search-input
         name="text"
         v-model="options.text"
         class="voices-feed-filters__searchbar"
+      />
+
+      <toggle-favorites-button
+        class="voices-feed-filters__toggle-favorites"
+        :variant="['hide-text']"
       />
     </div>
 
@@ -49,13 +58,15 @@ import SearchInput from '@/components/elements/SearchInput.vue'
 import SelectInput from '@/components/elements/SelectInput.vue'
 import RandomButton from '@/components/voice-catalog/RandomButton.vue'
 import { TagIcon, SwitchVerticalIcon } from '@vue-hero-icons/solid'
+import ToggleFavoritesButton from './ToggleFavoritesDrawer.vue'
 export default {
   components: {
     SearchInput,
     RandomButton,
     SelectInput,
     TagIcon,
-    SwitchVerticalIcon
+    SwitchVerticalIcon,
+    ToggleFavoritesButton
   },
   data () {
     return {
@@ -99,7 +110,7 @@ export default {
 .voices-feed-filters {
   &__toolbar {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto 1fr auto;
   }
 
   &__random {
@@ -111,6 +122,10 @@ export default {
     font-size: $font-md;
     margin-top: $spacing-lg;
     overflow-x: auto;
+  }
+
+  &__toggle-favorites {
+    margin-left: $spacing;
   }
 
   &__categories {
