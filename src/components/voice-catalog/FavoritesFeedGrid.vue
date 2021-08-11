@@ -1,5 +1,5 @@
 <template>
-  <grid class="is-compact">
+  <grid empty-message="You don't have any favorites yet." class="is-compact">
     <voice-card
       v-for="favorite in getFavoriteVoices"
       :key="favorite.id"

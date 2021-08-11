@@ -1,7 +1,11 @@
 <template>
   <section class="grid" :class="variant">
     <div class="grid__inner">
-      <slot />
+      <slot>
+        <div class="grid__empty-message">
+          {{ emptyMessage }}
+        </div>
+      </slot>
     </div>
   </section>
 </template>
@@ -9,7 +13,13 @@
 <script>
 import { variant } from '@/mixins/component-utils'
 export default {
-  mixins: [variant]
+  mixins: [variant],
+  props: {
+    emptyMessage: {
+      type: String,
+      default: 'No items to show.'
+    }
+  }
 }
 </script>
 
@@ -18,6 +28,10 @@ export default {
     display: flex;
     justify-content: center;
     max-width: 100%;
+
+    &__empty-message {
+      font-size: $font-xl;
+    }
 
     &__inner {
       display: grid;
