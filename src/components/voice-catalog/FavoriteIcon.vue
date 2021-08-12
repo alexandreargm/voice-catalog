@@ -1,6 +1,6 @@
 <template>
   <badge variant="is-rounded" class="favorite-icon" :class="variant">
-    <StarIcon />
+    <StarIcon class="favorite-icon__svg" />
   </badge>
 </template>
 
@@ -22,6 +22,7 @@ export default {
 }
 
 .favorite-icon.is-favorite {
-  color: #d6ae49;
+  color: $favorite-color;
+  opacity: 1 !important;
 }
 </style>

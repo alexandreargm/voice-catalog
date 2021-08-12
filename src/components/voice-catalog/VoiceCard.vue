@@ -1,6 +1,9 @@
 <template>
   <article class="voice-card shadow" @click="handleClick" :class="variant">
-    <FavoriteIcon class="voice-card__favorite" :variant="isFavoriteClass" />
+    <FavoriteIcon
+      class="voice-card__favorite"
+      :variant="isFavoriteClass"
+    />
 
     <img
       class="voice-card__icon"
@@ -8,7 +11,7 @@
       height="110"
       width="110"
       alt=""
-    >
+    />
 
     <h1 class="voice-card__name">
       {{ name }}
@@ -46,17 +49,13 @@ export default {
     handleClick () {
       this.toggleFavoriteVoice(this.id)
     },
-    ...mapActions('voices', [
-      'toggleFavoriteVoice'
-    ])
+    ...mapActions('voices', ['toggleFavoriteVoice'])
   },
   computed: {
     imageSrc () {
       return `images/${this.icon}`
     },
-    ...mapGetters('voices', [
-      'isFavoriteVoice'
-    ]),
+    ...mapGetters('voices', ['isFavoriteVoice']),
     isFavoriteClass () {
       return this.isFavoriteVoice(this.id) ? 'is-favorite' : ''
     }
@@ -99,6 +98,13 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+  }
+}
+
+.voice-card:hover .voice-card {
+  &__favorite {
+    color: $favorite-color;
+    opacity: 0.7;
   }
 }
 
