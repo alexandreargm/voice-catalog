@@ -14,8 +14,8 @@ const actions = {
   async fetchCategories ({ commit }) {
     // Load categories json workaround when running static website
     if (isStaticWebsite) {
-      commit('SET_VOICES', categoriesJson)
-
+      commit('SET_CATEGORIES', categoriesJson)
+      console.log(categoriesJson)
       return categoriesJson
     }
 
