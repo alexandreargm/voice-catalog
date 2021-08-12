@@ -2,7 +2,7 @@
   <section class="voices-feed">
     <voices-feed-filters v-model="findOptions" @random-button="handleRandomVoice" class="voices-feed__filters" />
 
-    <grid class="voices-feed__grid">
+    <grid class="voices-feed__grid container">
       <voice-card
         v-for="voice in filteredVoices"
         :key="voice.id"

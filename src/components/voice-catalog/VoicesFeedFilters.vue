@@ -4,55 +4,53 @@
     @input="triggerChange"
     class="voices-feed-filters"
   >
-    <div
-      class="voices-feed-filters__toolbar"
-      :class="isToolbarFixed? 'is-fixed-top' : ''"
-    >
-      <random-button
-        @click="$emit('random-button')"
-        class="voices-feed-filters__random"
-        variant="hide-xs"
-      />
-
-      <search-input
-        name="text"
-        placeholder="Search voices"
-        v-model="options.text"
-        class="voices-feed-filters__searchbar"
-      />
-
-      <toggle-favorites-drawer
-        v-if="isToolbarFixed"
-        class="voices-feed-filters__toggle-favorites"
-        :variant="['hide-text']"
-      />
-    </div>
-
-    <div class="voices-feed-filters__filters">
-      <select-input
-        name="order"
-        selected="popular"
-        v-model="options.order"
-        class="voices-feed-filters__order"
-        :variant="['is-secondary', 'is-compact']"
-        :options="orderOptions"
+    <div class="voices-feed-filters__inner container">
+      <div
+        class="voices-feed-filters__toolbar container"
+        :class="isToolbarFixed? 'is-fixed-top' : ''"
       >
-        <template #icon>
-          <SwitchVerticalIcon />
-        </template>
-      </select-input>
-
-      <select-input
-        name="category"
-        v-model="options.category"
-        class="voices-feed-filters__categories"
-        :variant="['is-secondary', 'is-compact']"
-        :options="categories"
-      >
-        <template #icon>
-          <TagIcon />
-        </template>
-      </select-input>
+        <random-button
+          @click="$emit('random-button')"
+          class="voices-feed-filters__random"
+          variant="hide-xs"
+        />
+        <search-input
+          name="text"
+          placeholder="Search voices"
+          v-model="options.text"
+          class="voices-feed-filters__searchbar"
+        />
+        <toggle-favorites-drawer
+          v-if="isToolbarFixed"
+          class="voices-feed-filters__toggle-favorites"
+          :variant="['hide-text']"
+        />
+      </div>
+      <div class="voices-feed-filters__filters">
+        <select-input
+          name="order"
+          selected="popular"
+          v-model="options.order"
+          class="voices-feed-filters__order"
+          :variant="['is-secondary', 'is-compact']"
+          :options="orderOptions"
+        >
+          <template #icon>
+            <SwitchVerticalIcon />
+          </template>
+        </select-input>
+        <select-input
+          name="category"
+          v-model="options.category"
+          class="voices-feed-filters__categories"
+          :variant="['is-secondary', 'is-compact']"
+          :options="categories"
+        >
+          <template #icon>
+            <TagIcon />
+          </template>
+        </select-input>
+      </div>
     </div>
   </div>
 </template>
@@ -145,7 +143,12 @@ export default {
 .voices-feed-filters {
   $toolbar-height: 80px;
 
+  &__inner {
+    background-color: $surface1;
+  }
+
   &__toolbar {
+    background-color: inherit;
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: $spacing-lg;
@@ -156,7 +159,6 @@ export default {
   }
 
   &__toolbar.is-fixed-top {
-    background-color: $surface2;
     position: fixed;
     top: 0;
   }
