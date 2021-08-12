@@ -1,11 +1,14 @@
 <template>
   <section class="grid" :class="variant">
-    <div class="grid__inner">
-      <slot>
-        <div class="grid__empty-message">
-          {{ emptyMessage }}
-        </div>
-      </slot>
+    <div
+      v-if="!$slots.default"
+      class="grid__empty-message"
+    >
+      {{ emptyMessage }}
+    </div>
+
+    <div v-else class="grid__inner">
+      <slot />
     </div>
   </section>
 </template>
