@@ -1,7 +1,7 @@
 <template>
   <grid empty-message="You don't have any favorites yet." class="is-compact">
     <voice-card
-      v-for="favorite in getFavoriteVoices"
+      v-for="favorite in filteredFavorites"
       :key="favorite.id"
       :id="favorite.id"
       :name="favorite.name"
@@ -15,20 +15,36 @@
 import VoiceCard from '@/components/voice-catalog/VoiceCard.vue'
 import Grid from '@/components/generic/Grid.vue'
 import { mapGetters } from 'vuex'
+import searchFilters from '@/mixins/search-filters'
 
 export default {
+  mixins: [searchFilters],
   components: {
     Grid,
     VoiceCard
   },
+  props: {
+    searchValue: {
+      type: String,
+      default: ''
+    }
+  },
   computed: {
-    // favorites () {
-    //   // return this.getFavorites()
-    // },
+    filteredFavorites () {
+      return this.getFilteredFavorites(this.getFavoriteVoices, this.searchValue)
+    },
     ...mapGetters('voices', [
-      'getVoices',
       'getFavoriteVoices'
     ])
+  },
+  methods: {
+    getFilteredFavorites (favorites, searchValue) {
+      const isSearching = searchValue !== ''
+
+      if (!isSearching) return favorites
+
+      return this.getByNameFilter(favorites, searchValue)
+    }
   }
 }
 </script>

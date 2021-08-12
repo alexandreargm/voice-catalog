@@ -6,12 +6,15 @@
 
     <template #header>
       <div class="favorites-drawer__searchbar">
-        <search-input v-model="searchValue" placeholder="Search favorite voices" />
+        <search-input
+          v-model="searchValue"
+          placeholder="Search in favorites"
+        />
       </div>
     </template>
 
     <div class="favorites-drawer__body">
-      <favorites-feed />
+      <favorites-feed :search-value="searchValue" />
     </div>
   </drawer>
 </template>
