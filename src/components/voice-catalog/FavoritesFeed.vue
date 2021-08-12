@@ -1,5 +1,5 @@
 <template>
-  <grid empty-message="You don't have any favorites yet." class="is-compact">
+  <grid empty-message="No favorites to show." class="is-compact">
     <voice-card
       v-for="favorite in filteredFavorites"
       :key="favorite.id"
@@ -48,7 +48,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  /* d */
-</style>
