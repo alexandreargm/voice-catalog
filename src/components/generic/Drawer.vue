@@ -1,40 +1,41 @@
 <template>
   <aside v-show="isOpen" class="drawer">
     <div class="drawer__overlay" @click="closeDrawer" />
+    <transition name="content-slide">
+      <div class="drawer__content" v-show="isOpen">
+        <header class="drawer__header">
+          <div class="drawer__header-top">
+            <slot name="title">
+              {{ title }}
+            </slot>
 
-    <div class="drawer__content">
-      <header class="drawer__header">
-        <div class="drawer__header-top">
-          <slot name="title">
-            {{ title }}
-          </slot>
+            <Button
+              :variant="['is-round', 'is-secondary']"
+              class="drawer__close-button"
+              @click="closeDrawer"
+            >
+              <XIcon />
+            </Button>
+          </div>
 
-          <Button
-            :variant="['is-round', 'is-secondary']"
-            class="drawer__close-button"
-            @click="closeDrawer"
-          >
-            <XIcon />
-          </Button>
+          <div v-if="$slots.header" class="drawer__header-content">
+            <slot name="header" />
+          </div>
+
+        </header>
+
+        <div class="drawer__body">
+          <slot />
         </div>
-
-        <div v-if="$slots.header" class="drawer__header-content">
-          <slot name="header" />
-        </div>
-
-      </header>
-
-      <div class="drawer__body">
-        <slot />
       </div>
-    </div>
+    </transition>
   </aside>
 </template>
 
 <script>
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { XIcon } from '@vue-hero-icons/outline'
-import Button from '../elements/Button.vue'
+import Button from '@/components/elements/Button.vue'
 
 export default {
   components: {
@@ -66,6 +67,7 @@ export default {
 
 <style lang="scss">
 .drawer {
+  background-color: rgba($surface-shadow, 0.4);
   bottom: 0;
   display: flex;
   left: 0;
@@ -75,7 +77,6 @@ export default {
   z-index: $z-fixed;
 
   &__overlay {
-    background-color: rgba($surface-shadow, 0.4);
     flex: 1;
   }
 
@@ -122,4 +123,15 @@ export default {
     overflow-y: auto;
   }
 }
+
+.content-slide {
+  &-enter {
+    transform: translateX(100%);
+  }
+
+  &-enter-active {
+    transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
 </style>
