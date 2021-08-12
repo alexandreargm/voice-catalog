@@ -35,6 +35,9 @@ export default {
     &__empty-message {
       color: $text2;
       font-size: $font-xl;
+      line-height: 1.4;
+      padding: 16px;
+      text-align: center;
     }
 
     &__inner {
