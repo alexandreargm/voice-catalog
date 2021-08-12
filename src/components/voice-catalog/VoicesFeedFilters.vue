@@ -20,7 +20,7 @@
           v-model="options.text"
           class="voices-feed-filters__searchbar"
         />
-        <transition name="drawer-toggle">
+        <transition name="drawer-toggle-transition">
           <toggle-favorites-drawer
             v-show="isToolbarFixed"
             class="voices-feed-filters__toggle-favorites"
@@ -186,20 +186,17 @@ export default {
   }
 }
 
-.drawer-toggle {
-  &-enter-active,
-  &-leave-active {
+.drawer-toggle-transition {
+  &-enter-active {
     transition: all 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
   }
 
-  &-enter,
-  &-leave-to {
+  &-enter {
     opacity: 0;
     transform: translateY(-100%);
   }
 
-  &-enter-to,
-  &-leave {
+  &-enter-to {
     opacity: 1;
     transform: translateY(0);
   }
