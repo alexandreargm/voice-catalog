@@ -55,7 +55,7 @@ export default {
   },
   computed: {
     filteredVoices () {
-      return this.getFilteredVoices(this.voices, this.findOptions)
+      return this.getFilteredVoices(this.getVoices, this.findOptions)
     },
     ...mapGetters('voices', [
       'getVoices'
@@ -100,7 +100,7 @@ export default {
     ])
   },
   async created () {
-    this.voices = await this.fetchVoices()
+    this.fetchVoices()
   }
 }
 </script>
