@@ -27,43 +27,50 @@ export default {
 </script>
 
 <style lang="scss">
-  .grid {
+.grid {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+
+  &__empty-message {
+    color: $text2;
+    font-size: $font-xl;
+    line-height: 1.4;
+    padding: 16px;
+    text-align: center;
+  }
+
+  &__inner {
+    display: grid;
+    gap: $spacing;
+    grid-template-columns: repeat(2, 1fr);
+    padding: $padding;
+
+    @include breakpoint('tablet') {
+      gap: $spacing-lg;
+      grid-template-columns: repeat(4, 1fr);
+      padding: $padding-lg;
+    }
+
+    @include breakpoint('desktop') {
+      gap: $spacing-xl;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+.grid.is-compact {
+  .grid__inner {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0;
     justify-content: center;
-    max-width: 100%;
-
-    &__empty-message {
-      color: $text2;
-      font-size: $font-xl;
-      line-height: 1.4;
-      padding: 16px;
-      text-align: center;
-    }
-
-    &__inner {
-      display: grid;
-      gap: $spacing;
-      grid-template-columns: repeat(2, 1fr);
-      padding: $padding;
-
-      @include breakpoint('tablet') {
-        gap: $spacing-lg;
-        grid-template-columns: repeat(4, 1fr);
-        padding: $padding-lg;
-      }
-
-      @include breakpoint('desktop') {
-        gap: $spacing-xl;
-        grid-template-columns: repeat(6, 1fr);
-      }
-    }
+    padding: 0;
   }
 
-  .grid.is-compact {
-    .grid__inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+  // Support fix. Safari flex gap is not supported
+  .grid__inner > * {
+    margin: $spacing-md;
   }
+}
 </style>
