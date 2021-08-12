@@ -1,12 +1,13 @@
 # voice-catalog
 
-Voice catalog was built in Vue 2 using Vue cli.
+Voice catalog is built using Vue 2.
 
 **Tools used:**
-* [Scss](https://sass-lang.com/) for general styling and for keeping consistency using variables and mixins.
+* [Scss](https://sass-lang.com/) for general styling and for keeping consistency by using variables and mixins.
 * [Vuex](https://vuex.vuejs.org/) for state, events, and local persistance.
 * [Normalize.css](https://necolas.github.io/normalize.css/) to get a solid base for styling.
 * [Body scroll lock](https://github.com/willmcpo/body-scroll-lock) to avoid having two scrolls at the same time.
+* [Postcss-env-preset](https://preset-env.cssdb.org/) for improving support for new css features.
 
 **Features:**
 * Search by text and category.
