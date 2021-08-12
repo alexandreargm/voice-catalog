@@ -15,7 +15,6 @@ const actions = {
     // Load categories json workaround when running static website
     if (isStaticWebsite) {
       commit('SET_CATEGORIES', categoriesJson)
-      console.log(categoriesJson)
       return categoriesJson
     }
 
