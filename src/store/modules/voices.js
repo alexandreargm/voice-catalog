@@ -50,12 +50,20 @@ const actions = {
 
     commit('ADD_FAVORITE_VOICE', voiceId)
     return true
+  },
+  setFavorites ({ commit }, voiceIds) {
+    if (!Array.isArray(voiceIds) || voiceIds.length === 0) return false
+
+    commit('SET_FAVORITE_VOICES', voiceIds)
   }
 }
 
 const mutations = {
   SET_VOICES (state, voices) {
     state.all = voices
+  },
+  SET_FAVORITE_VOICES (state, voiceIds) {
+    state.favoriteIds = voiceIds
   },
   ADD_FAVORITE_VOICE (state, voiceId) {
     state.favoriteIds.push(voiceId)
