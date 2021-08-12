@@ -148,7 +148,6 @@ export default {
   }
 
   &__toolbar {
-    background-color: inherit;
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: $spacing-lg;
@@ -159,6 +158,7 @@ export default {
   }
 
   &__toolbar.is-fixed-top {
+    background-color: inherit;
     position: fixed;
     top: 0;
   }
