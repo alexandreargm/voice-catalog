@@ -20,11 +20,13 @@
           v-model="options.text"
           class="voices-feed-filters__searchbar"
         />
-        <toggle-favorites-drawer
-          v-if="isToolbarFixed"
-          class="voices-feed-filters__toggle-favorites"
-          :variant="['hide-text']"
-        />
+        <transition name="drawer-toggle">
+          <toggle-favorites-drawer
+            v-show="isToolbarFixed"
+            class="voices-feed-filters__toggle-favorites"
+            :variant="['hide-text']"
+          />
+        </transition>
       </div>
       <div class="voices-feed-filters__filters">
         <select-input
@@ -182,5 +184,25 @@ export default {
   &__categories {
     margin-left: $padding-md;
   }
+}
+
+.drawer-toggle {
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.2s cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  &-enter-to,
+  &-leave {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
 }
 </style>
