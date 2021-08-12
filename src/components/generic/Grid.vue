@@ -43,20 +43,17 @@ export default {
     &__inner {
       display: grid;
       gap: $spacing;
-      grid-gap: $spacing;
       grid-template-columns: repeat(2, 1fr);
       padding: $padding;
 
       @include breakpoint('tablet') {
         gap: $spacing-lg;
-        grid-gap: $spacing-lg;
         grid-template-columns: repeat(4, 1fr);
         padding: $padding-lg;
       }
 
       @include breakpoint('desktop') {
         gap: $spacing-xl;
-        grid-gap: $spacing-xl;
         grid-template-columns: repeat(6, 1fr);
       }
     }
