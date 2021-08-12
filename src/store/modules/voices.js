@@ -29,9 +29,6 @@ const actions = {
 
     return getVoices
   },
-  setVoices ({ commit }, voices) {
-    commit('SET_VOICES', voices)
-  },
   addFavoriteVoice ({ commit, getters }, voiceId) {
     const isFavorite = getters.isFavoriteVoice(voiceId)
     if (isFavorite) return false
