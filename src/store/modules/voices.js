@@ -10,6 +10,7 @@ const getters = {
 }
 
 const actions = {
+  // Fetch voices only works when running in a webserver like with "npm run dev"
   async fetchVoices ({ commit }) {
     const getVoicesJson = await fetch('voices.json')
     const getVoices = await getVoicesJson.json()
