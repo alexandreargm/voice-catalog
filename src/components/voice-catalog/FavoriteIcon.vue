@@ -23,6 +23,6 @@ export default {
 
 .favorite-icon.is-favorite {
   color: $favorite-color !important;
-  opacity: 1 !important;
 }
+
 </style>

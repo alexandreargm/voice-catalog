@@ -104,7 +104,7 @@ export default {
 .voice-card:hover .voice-card {
   &__favorite {
     color: #fff;
-    opacity: 0.6;
+    opacity: 0.6 !important;
   }
 }
 
