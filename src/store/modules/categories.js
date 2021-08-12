@@ -1,4 +1,4 @@
-const categoiesJson = [{ id: 'misc', title: 'Miscellaneous' }, { id: 'devices', title: 'Devices' }, { id: 'human', title: 'Human' }, { id: 'robotic', title: 'Robotic' }, { id: 'sing', title: 'Sing' }, { id: 'environment', title: 'Environment' }, { id: 'character', title: 'Character' }, { id: 'horror', title: 'Horror' }]
+const categoriesJson = [{ id: 'misc', title: 'Miscellaneous' }, { id: 'devices', title: 'Devices' }, { id: 'human', title: 'Human' }, { id: 'robotic', title: 'Robotic' }, { id: 'sing', title: 'Sing' }, { id: 'environment', title: 'Environment' }, { id: 'character', title: 'Character' }, { id: 'horror', title: 'Horror' }]
 const isStaticWebsite = process.env.NODE_ENV === 'production'
 
 const state = {
@@ -14,9 +14,9 @@ const actions = {
   async fetchCategories ({ commit }) {
     // Load categories json workaround when running static website
     if (isStaticWebsite) {
-      commit('SET_VOICES', categoiesJson)
+      commit('SET_VOICES', categoriesJson)
 
-      return categoiesJson
+      return categoriesJson
     }
 
     const getCategoriesJson = await fetch('categories.json')
