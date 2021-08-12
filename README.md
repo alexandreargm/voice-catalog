@@ -2,6 +2,8 @@
 
 Voice catalog is built using Vue 2.
 
+Visit [this link](https://alexandreargm.github.io/voice-catalog/) for a live demo.
+
 **Tools used:**
 * [Scss](https://sass-lang.com/) for general styling and for keeping consistency by using variables and mixins.
 * [Vuex](https://vuex.vuejs.org/) for state, events, and local persistance.
