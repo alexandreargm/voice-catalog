@@ -3,7 +3,6 @@
     <FavoriteIcon
       class="voice-card__favorite"
       :variant="isFavoriteClass"
-      role="presentation"
     />
 
     <img
