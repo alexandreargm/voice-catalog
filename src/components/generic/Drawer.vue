@@ -1,5 +1,5 @@
 <template>
-  <aside v-show="isOpen" class="drawer">
+  <aside v-show="isOpen" class="drawer" :aria-hidden="isOpen">
     <div class="drawer__overlay" @click="closeDrawer" />
     <transition name="content-slide">
       <div class="drawer__content" v-show="isOpen">
@@ -86,7 +86,7 @@ export default {
     flex: 1 1 auto;
     flex-direction: column;
     max-width: 600px;
-    width: 90%;
+    width: 80%;
   }
 
   &__header {

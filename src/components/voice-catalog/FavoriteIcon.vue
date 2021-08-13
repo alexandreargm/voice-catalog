@@ -1,6 +1,6 @@
 <template>
   <badge variant="is-rounded" class="favorite-icon" :class="variant">
-    <StarIcon class="favorite-icon__svg" />
+    <StarIcon class="favorite-icon__svg" role="presentation" />
   </badge>
 </template>
 

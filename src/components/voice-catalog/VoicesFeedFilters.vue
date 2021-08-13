@@ -26,6 +26,7 @@
             v-show="isToolbarFixed"
             class="voices-feed-filters__toggle-favorites"
             :variant="['hide-text']"
+            :aria-hidden="isToolbarFixed"
           />
         </transition>
       </div>
