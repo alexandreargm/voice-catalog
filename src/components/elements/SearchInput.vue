@@ -1,6 +1,6 @@
 <template>
   <div class="search-input" v-bind:value="value" :class="variant">
-    <SearchIcon class="search-input__icon" />
+    <SearchIcon class="search-input__icon" role="presentation" />
 
     <input
       class="search-input__input"

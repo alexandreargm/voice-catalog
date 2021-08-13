@@ -14,7 +14,7 @@
               class="drawer__close-button"
               @click="closeDrawer"
             >
-              <XIcon />
+              <XIcon role="presentation" />
             </Button>
           </div>
 

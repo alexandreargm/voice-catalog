@@ -8,7 +8,7 @@
         class="modal__close-button"
         @click="closeModal"
         >
-          <XIcon />
+          <XIcon role="presentation" />
         </Button>
       </div>
 

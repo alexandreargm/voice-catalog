@@ -39,7 +39,7 @@
           :options="orderOptions"
         >
           <template #icon>
-            <SwitchVerticalIcon />
+            <SwitchVerticalIcon role="presentation" />
           </template>
         </select-input>
         <select-input
@@ -50,7 +50,7 @@
           :options="categories"
         >
           <template #icon>
-            <TagIcon />
+            <TagIcon role="presentation" />
           </template>
         </select-input>
       </div>

@@ -3,6 +3,7 @@
     <FavoriteIcon
       class="voice-card__favorite"
       :variant="isFavoriteClass"
+      role="presentation"
     />
 
     <img
@@ -10,7 +11,8 @@
       :src="imageSrc"
       height="110"
       width="110"
-      alt=""
+      alt="Sound card"
+      role="presentation"
     />
 
     <h1 class="voice-card__name">

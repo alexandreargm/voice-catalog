@@ -1,6 +1,6 @@
 <template>
   <Button class="toggle-favorites-drawer" @click="toggleFavoriteDrawer" :class="[variant, 'is-secondary', 'is-compact']">
-    <ViewGridAddIcon size="24" class="toggle-favorites-drawer__icon icon" />
+    <ViewGridAddIcon size="24" class="toggle-favorites-drawer__icon icon" role="presentation" />
 
     <span class="toggle-favorites-drawer__text">
       Favorites
