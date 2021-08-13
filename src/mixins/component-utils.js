@@ -8,3 +8,12 @@ export const variant = {
     }
   }
 }
+
+export const autocompleteProp = {
+  props: {
+    autocomplete: {
+      type: String,
+      default: 'on'
+    }
+  }
+}

@@ -11,16 +11,17 @@
       @keypress.enter="blurInput"
       :placeholder="placeholder"
       :aria-label="placeholder"
+      :autocomplete="autocomplete"
     />
   </div>
 </template>
 
 <script>
 import { SearchIcon } from '@vue-hero-icons/solid'
-import { variant } from '@/mixins/component-utils'
+import { variant, autocompleteProp } from '@/mixins/component-utils'
 
 export default {
-  mixins: [variant],
+  mixins: [variant, autocompleteProp],
   components: { SearchIcon },
   props: {
     name: {

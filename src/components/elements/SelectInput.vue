@@ -4,7 +4,14 @@
       <slot name="icon" />
     </div>
 
-    <select class="select-input" :class="[variant, hasIconClass]" :name="name" @change="handleSelect" :id="name">
+    <select
+      class="select-input"
+      :class="[variant, hasIconClass]"
+      :name="name"
+      @change="handleSelect"
+      :id="name"
+      :autocomplete="autocomplete"
+    >
       <option
         class="select-input__option"
         v-for="option in options"
@@ -22,9 +29,9 @@
 </template>
 
 <script>
-import { variant } from '@/mixins/component-utils'
+import { variant, autocompleteProp } from '@/mixins/component-utils'
 export default {
-  mixins: [variant],
+  mixins: [variant, autocompleteProp],
   props: {
     name: {
       type: String,
