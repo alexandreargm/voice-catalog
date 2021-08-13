@@ -9,6 +9,7 @@
         <search-input
           v-model="searchValue"
           placeholder="Search in favorites"
+          autocomplete="off"
         />
       </div>
     </template>

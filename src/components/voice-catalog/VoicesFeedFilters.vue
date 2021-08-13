@@ -19,6 +19,7 @@
           placeholder="Search voices"
           v-model="options.text"
           class="voices-feed-filters__searchbar"
+          autocomplete="off"
         />
         <transition name="drawer-toggle-transition">
           <toggle-favorites-drawer
