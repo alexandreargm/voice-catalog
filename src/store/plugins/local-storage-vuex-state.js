@@ -2,15 +2,13 @@ class LocalStorageVuexState {
   #favoritesKey = 'vc-favorites'
 
   setFavorites (favorites) {
-    console.log('set')
     try {
       const newFavoritesJson = JSON.stringify(favorites)
 
       localStorage.setItem(this.#favoritesKey, newFavoritesJson)
       return true
     } catch (error) {
-      console.error('setFavorites', error)
-      return false
+      throw new Error(`${error.name}: ${error.message}`)
     }
   }
 
@@ -21,8 +19,7 @@ class LocalStorageVuexState {
 
       return JSON.parse(getFavoriteIdsJson)
     } catch (error) {
-      console.error('getFavorites', error)
-      return false
+      throw new Error(`${error.name}: ${error.message}`)
     }
   }
 
@@ -53,12 +50,19 @@ class LocalStorageVuexState {
     }
   }
 
+  initFavoritesStorage () {
+    this.setFavorites([])
+  }
+
   restoreState (store) {
     if (!this.#islocalStorageAvailable) return false
 
     const getStoredFavorites = this.getFavorites()
 
-    if (getStoredFavorites.length === 0) return false
+    if (!Array.isArray(getStoredFavorites)) {
+      this.initFavoritesStorage()
+      return false
+    }
 
     store.commit('voices/SET_FAVORITE_VOICES', getStoredFavorites)
     return true
