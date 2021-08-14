@@ -19,8 +19,7 @@ export const searchFilters = {
       return getHaystackDeepClone.sort(orderFunctions[order])
     },
     getRandomFilter (haystack) {
-      const haystackSize = haystack.length
-      const randomItemIndex = Math.floor(Math.random() * haystackSize)
+      const randomItemIndex = Math.floor(Math.random() * haystack.length)
 
       return haystack[randomItemIndex]
     }
