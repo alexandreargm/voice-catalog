@@ -5,7 +5,7 @@ import Vuex from 'vuex'
 import voices from '@/store/modules/voices'
 import favoritesDrawer from '@/store/modules/favoritesDrawer'
 import categories from '@/store/modules/categories'
-import persistState from '@/store/plugins/persist-state'
+import localStorageVuexState from '@/store/plugins/local-storage-vuex-state'
 
 Vue.use(Vuex)
 
@@ -24,5 +24,5 @@ export default new Vuex.Store({
     favoritesDrawer,
     categories
   },
-  plugins: [persistState]
+  plugins: [localStorageVuexState]
 })
