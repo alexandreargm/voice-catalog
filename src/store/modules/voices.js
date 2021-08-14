@@ -55,6 +55,7 @@ const actions = {
     if (!Array.isArray(voiceIds) || voiceIds.length === 0) return false
 
     commit('SET_FAVORITE_VOICES', voiceIds)
+    return true
   }
 }
 
