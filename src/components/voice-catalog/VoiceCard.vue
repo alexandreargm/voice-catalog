@@ -1,9 +1,8 @@
 <template>
-  <article class="voice-card shadow" @click="handleClick" :class="variant">
-    <FavoriteIcon
-      class="voice-card__favorite"
-      :variant="isFavoriteClass"
-    />
+  <article class="voice-card shadow" @click="handleClick" :class="[variant, isFavoriteClass]">
+    <badge class="voice-card__favorite-badge" variant="is-rounded">
+      <StarIcon role="presentation" />
+    </badge>
 
     <img
       class="voice-card__icon"
@@ -23,11 +22,15 @@
 <script>
 import { variant } from '@/mixins/component-utils'
 import { mapActions, mapGetters } from 'vuex'
-import FavoriteIcon from '@/components/voice-catalog/FavoriteIcon.vue'
+import { StarIcon } from '@vue-hero-icons/outline'
+import Badge from '../elements/Badge.vue'
 
 export default {
   mixins: [variant],
-  components: { FavoriteIcon },
+  components: {
+    Badge,
+    StarIcon
+  },
   props: {
     id: {
       type: String,
@@ -95,15 +98,23 @@ export default {
     overflow-y: hidden;
   }
 
-  &__favorite {
+  &__favorite-badge {
+    background-color: $surface3;
+    color: $text3;
     position: absolute;
     right: 0;
     top: 0;
   }
 }
 
+.voice-card.is-favorite .voice-card {
+  &__favorite-badge {
+    color: $favorite-color !important;
+  }
+}
+
 .voice-card:hover .voice-card {
-  &__favorite {
+  &__favorite-badge {
     color: #fff;
     opacity: 0.6 !important;
   }
