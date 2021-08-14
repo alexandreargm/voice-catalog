@@ -9,6 +9,7 @@
       :class="[variant, hasIconClass]"
       :name="name"
       @change="handleSelect"
+      v-model="selectedValue"
       :id="name"
       :autocomplete="autocomplete"
     >
@@ -56,10 +57,14 @@ export default {
     }
   },
   methods: {
-    handleSelect (event) {
-      this.selectedValue = event.target.value
+    handleSelect () {
       this.$emit('change', this.selectedValue)
     },
+    /*
+     * v-model fix.
+     * For some reason using v-model on a select that uses slots
+     * for the options resets doesn't respect the default value.
+     */
     setDefaultValue () {
       this.selectedValue = this.selected
     }
