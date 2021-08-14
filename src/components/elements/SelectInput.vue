@@ -21,7 +21,7 @@
       >
         {{ option.title }}
       </option>
-      <slot v-if="!options">
+      <slot v-if="options.length === 0">
         <option value="">Missing options</option>
       </slot>
     </select>
@@ -39,7 +39,7 @@ export default {
     },
     options: {
       type: Array,
-      default: null
+      default: () => []
     },
     selected: {
       type: String,
