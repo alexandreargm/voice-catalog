@@ -48,7 +48,6 @@ export default {
   data () {
     return {
       findOptions: {},
-      voices: [],
       randomVoice: {},
       isRandomVoiceModalOpen: false
     }
