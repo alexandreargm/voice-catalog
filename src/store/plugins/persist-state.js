@@ -1,7 +1,7 @@
 const FAVORITES_KEY = 'vc-favorites'
 
 const islocalStorageAvailable = () => {
-  var test = 'test'
+  const test = 'test'
   try {
     localStorage.setItem(test, test)
     localStorage.removeItem(test)
@@ -15,36 +15,51 @@ function restoreState (store) {
   if (!islocalStorageAvailable) return false
 
   const getStoredFavorites = getFavorites()
-  const isOldStateEmpty = getStoredFavorites.length === 0
 
-  if (isOldStateEmpty) return false
+  if (getStoredFavorites.length === 0) return false
 
   store.commit('voices/SET_FAVORITE_VOICES', getStoredFavorites)
+  return true
 }
 
 function setFavorites (favorites) {
-  const newFavoritesJson = JSON.stringify(favorites)
+  try {
+    const newFavoritesJson = JSON.stringify(favorites)
 
-  localStorage.setItem(FAVORITES_KEY, newFavoritesJson)
+    localStorage.setItem(FAVORITES_KEY, newFavoritesJson)
+    return true
+  } catch (error) {
+    console.error('setFavorites', error)
+    return false
+  }
 }
 
 function getFavorites () {
-  const getFavoriteIdsJson = localStorage.getItem(FAVORITES_KEY)
-  if (!getFavoriteIdsJson) return []
+  try {
+    const getFavoriteIdsJson = localStorage.getItem(FAVORITES_KEY)
+    if (!getFavoriteIdsJson) return false
 
-  return JSON.parse(getFavoriteIdsJson)
+    return JSON.parse(getFavoriteIdsJson)
+  } catch (error) {
+    console.error('getFavorites', error)
+    return false
+  }
 }
 
 function addFavorite (favoriteId) {
   const getStoredFavorites = getFavorites()
+  if (!favoriteId || !Array.isArray(getStoredFavorites)) return false
 
   setFavorites([favoriteId, ...getStoredFavorites])
+  return true
 }
 
 function removeFavorite (favorideId) {
   const getStoredFavorites = getFavorites()
+  if (!favorideId || !Array.isArray(getStoredFavorites)) return false
 
   setFavorites(getStoredFavorites.filter(storedFavoriteId => storedFavoriteId !== favorideId))
+  return true
 }
 
 export default store => {
