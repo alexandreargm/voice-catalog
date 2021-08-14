@@ -14,9 +14,9 @@ export const searchFilters = {
     getInOrderFilter (haystack, order, orderFunctions) {
       if (!order) return haystack
 
-      const getHaystackDeepClone = [...haystack]
+      const getHaystackShallowClone = [...haystack]
 
-      return getHaystackDeepClone.sort(orderFunctions[order])
+      return getHaystackShallowClone.sort(orderFunctions[order])
     },
     getRandomFilter (haystack) {
       const randomItemIndex = Math.floor(Math.random() * haystack.length)
