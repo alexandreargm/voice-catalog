@@ -22,6 +22,7 @@ const actions = {
       return voicesJson
     }
 
+    // Using webserver. Use fetch to load public static voices.json file
     const getVoicesJson = await fetch('voices.json')
     const getVoices = await getVoicesJson.json()
 
